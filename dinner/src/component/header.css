@@ -1,0 +1,24 @@
+.header--container {
+    width: 75vw;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__title--container {
+    display: flex;
+    align-items: center;
+}
+
+.header__image--style {
+    height: 40px;
+    width:  40px;
+    margin-right: 10px;
+}
+
+.header__button--container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
