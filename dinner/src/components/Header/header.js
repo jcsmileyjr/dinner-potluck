@@ -1,4 +1,5 @@
 import ChefHeart from "../../images/chef-heart-green.png";
+import HeaderButton from "../HeaderButton/HeaderButton";
 import "./header.css";
 const Header = () => {
     return(
@@ -8,7 +9,7 @@ const Header = () => {
                 <h1 className="header__title--style">Sunday's Family Dinner & Potluck</h1>
             </div>
             <div className="header__button--container">
-                <button type="button" className="header__button--style" >Start</button>
+                <HeaderButton mode="Start" />
             </div>
         </div>
     );
