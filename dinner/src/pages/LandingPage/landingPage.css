@@ -1,0 +1,30 @@
+main {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.landingPage__topContent--container {
+    display: flex;
+    margin: 5px 5px 20px 5px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.topContent__content--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.topContent__content--style {
+    margin: 10px;
+    color: black;
+    font-weight: 600;
+}
+
+.image__food--style {
+    height: 100%;
+    width: 300px;
+    margin: 5px;
+}
