@@ -23,23 +23,25 @@ const landingPage = () => {
                     <section className="bottomContent__leftBox--container">
                         <img src={calendar} className="image__calendar--style" alt="" />
                         <div className="bottomContent__leftContent--container">
-                            <p>content</p>
+                            <p>The family that stress less <span className="">Loves more</span>!!!</p>
                         </div>
                     </section>
                     <section className="bottomContent__rightBox--container">
-                        <h2>Menu</h2>
                         <div className="bottomcontent__rightContent--container">
-                            <div className="rightContent__menuFood--container">
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                            </div>
-                            <div className="rightContent__menuName--container">
-                                <p></p>
-                                <p></p>
-                                <p></p>
-                                <p></p>
+                            <h3>Menu</h3>
+                            <div className="rightContent__innnerDiv--container">
+                                <div className="rightContent__menuFood--container">
+                                    <p>Fried Chicken</p>
+                                    <p>Spaghetii</p>
+                                    <p>Fried Fish</p>
+                                    <p>Drinks</p>
+                                </div>
+                                <div className="rightContent__menuName--container">
+                                    <p>Emma Jackson</p>
+                                    <p>Little Ricky</p>
+                                    <p>Janet Henderson</p>
+                                    <p>TJ</p>
+                                </div>
                             </div>
                         </div>
                     </section>

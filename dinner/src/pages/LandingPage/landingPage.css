@@ -3,7 +3,7 @@ main {
     margin: 0 auto;
 }
 
-.landingPage__topContent--container {
+.landingPage__topContent--container, .bottomContent__leftBox--container {
     display: flex;
     margin: 5px 5px 20px 5px;
     background-color: white;
@@ -11,13 +11,13 @@ main {
     border-radius: 8px;
 }
 
-.topContent__content--container {
+.topContent__content--container, .bottomContent__leftContent--container {
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 
-.topContent__content--style {
+.topContent__content--style, .bottomContent__leftContent--container {
     margin: 10px;
     color: black;
     font-weight: 600;
@@ -28,3 +28,53 @@ main {
     width: 300px;
     margin: 5px;
 }
+
+.landingPage__bottomContent--container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.bottomContent__leftBox--container, .bottomContent__rightBox--container {
+    /* max-width: 300px; */
+    flex: 1;
+}
+
+.image__calendar--style {
+    height: 150px;
+    width: 110px;
+    margin: 10px;
+}
+.bottomContent__leftContent--container span {
+    text-decoration: underline;
+    font-weight: bold;
+}
+
+.bottomContent__rightBox--container {
+    margin: 5px 5px 20px 5px;
+    padding: 5px 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+}
+
+.bottomcontent__rightContent--container {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(92 163 99);
+    color: white;
+}
+
+.bottomcontent__rightContent--container h3 {
+    margin-bottom: 0;
+    text-decoration: underline;
+}
+
+.rightContent__innnerDiv--container {
+    display: flex;
+    font-size: small;
+    gap: 20px;
+}
+
+
