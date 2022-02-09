@@ -1,4 +1,4 @@
-import ChefHeart from "../images/chef-heart-green.png";
+import ChefHeart from "../../images/chef-heart-green.png";
 import "./header.css";
 const Header = () => {
     return(

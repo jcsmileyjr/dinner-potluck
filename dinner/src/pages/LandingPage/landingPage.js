@@ -1,4 +1,4 @@
-import Header from "../../components/header";
+import Header from "../../components/Header/header";
 import food from "../../images/food.jpg";
 import calendar from "../../images/calendar-date-green-1.png";
 import "./landingPage.css";
