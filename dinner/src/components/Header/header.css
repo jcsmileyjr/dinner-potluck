@@ -22,3 +22,22 @@
     align-items: center;
     justify-content: center;
 }
+
+@media only screen and (max-width: 600px) {
+    .header--container {
+        width: 100%;
+    }
+
+    .header--container h1 {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .header__title--style {
+        white-space: nowrap;
+    }
+
+    .header__button--container {
+        flex:0;
+    }
+}

@@ -6,7 +6,7 @@ const Header = () => {
         <div className="header--container">
             <div className="header__title--container">
                 <img src={ChefHeart} className="header__image--style" alt="" />
-                <h1 className="header__title--style">Sunday's Family Dinner & Potluck</h1>
+                <h1>Sunday's Family Dinner <span className="header__title--style">& Potluck</span></h1>
             </div>
             <div className="header__button--container">
                 <HeaderButton mode="Start" />
