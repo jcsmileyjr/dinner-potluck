@@ -36,7 +36,6 @@ main {
 }
 
 .bottomContent__leftBox--container, .bottomContent__rightBox--container {
-    /* max-width: 300px; */
     flex: 1;
 }
 
@@ -77,4 +76,29 @@ main {
     gap: 20px;
 }
 
+@media only screen and (max-width: 600px) {
+    main {
+        width: 90%;
+    }
 
+    .landingPage__topContent--container {
+        flex-direction: column;
+    }
+
+    .image__food--style {
+        width: 100%;
+        margin: 0;
+    }
+
+    .landingPage__topContent--container, .bottomContent__leftBox--container {
+        margin:0;
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .landingPage__bottomContent--container {
+        display: flex;
+        flex-direction: column;
+        gap: 0px;
+    }
+}
