@@ -32,7 +32,7 @@ main {
 .landingPage__bottomContent--container {
     display: flex;
     justify-content: space-between;
-    gap: 50px;
+    gap: 20px;
 }
 
 .bottomContent__leftBox--container, .bottomContent__rightBox--container {
