@@ -23,7 +23,7 @@ const landingPage = () => {
                     <section className="bottomContent__leftBox--container">
                         <img src={calendar} className="image__calendar--style" alt="" />
                         <div className="bottomContent__leftContent--container">
-                            <p>The family that stress less <span className="">Loves more</span>!!!</p>
+                            <p>The family that stress less <span className="wrapText">Loves more</span>!!!</p>
                         </div>
                     </section>
                     <section className="bottomContent__rightBox--container">

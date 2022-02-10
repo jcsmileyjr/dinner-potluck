@@ -23,6 +23,26 @@
     justify-content: center;
 }
 
+@media only screen and (min-width:601px) and (max-width: 808px) {
+    .header--container {
+        width: initial;
+    }
+
+    .header--container h1 {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .header__button--container {
+        flex:0;
+    }
+
+    .header__image--style {
+        height: 30px;
+        width:  30px;
+    }
+}
+
 @media only screen and (max-width: 600px) {
     .header--container {
         width: 100%;
@@ -39,5 +59,10 @@
 
     .header__button--container {
         flex:0;
+    }
+
+    .header__image--style {
+        height: 25px;
+        width:  25px;
     }
 }

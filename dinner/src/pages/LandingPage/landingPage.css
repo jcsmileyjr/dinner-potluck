@@ -70,6 +70,10 @@ main {
     text-decoration: underline;
 }
 
+.wrapText {
+    white-space: nowrap;
+}
+
 .rightContent__innnerDiv--container {
     display: flex;
     font-size: small;
