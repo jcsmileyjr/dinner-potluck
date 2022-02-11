@@ -3,11 +3,11 @@ import food from "../../images/food.jpg";
 import calendar from "../../images/calendar-date-green-1.png";
 import "./landingPage.css";
 
-const landingPage = () => {
+const landingPage = ({goto}) => {
     return(
         <div>
             <main>
-                <Header />
+                <Header event={goto}/>
                 <section className="landingPage__topContent--container">
                     <img src={food} className="image__food--style" alt="" />
                     <div className="topContent__content--container">
