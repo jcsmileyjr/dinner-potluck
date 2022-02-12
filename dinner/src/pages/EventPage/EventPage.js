@@ -7,6 +7,7 @@ import React, {useState, useEffect} from 'react';
 
 const EventPage = ({goto, joinPlanning}) => {
     const [foodEvents, setFoodEvents] = useState([]);
+    const [joinCode, setJoinCode] = useState("");
 
     useEffect(()=> {
         updateData();
@@ -40,7 +41,7 @@ const EventPage = ({goto, joinPlanning}) => {
                         </Pillbox>                        
                     </section>
                     <section className="code">
-                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning("123")}} showInput="true">
+                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning(joinCode)}} showInput="true" inputEvent={setJoinCode}>
                             This is the group code shared by the primary organizer!!!
                         </Pillbox>
                     </section>
