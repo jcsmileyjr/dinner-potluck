@@ -67,6 +67,7 @@
     background-color: var(--Neutral-white);
     box-shadow: 1px 3px 6px rgb(216, 214, 214);
     border: 1px solid var(--Primary-Dark-green);
+    text-align: center;
   }
 
   .pillbox__input--style:focus-visible {

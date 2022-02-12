@@ -5,7 +5,7 @@ import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import React, {useState, useEffect} from 'react';
 
-const EventPage = ({goto}) => {
+const EventPage = ({goto, joinPlanning}) => {
     const [foodEvents, setFoodEvents] = useState([]);
 
     useEffect(()=> {
@@ -40,7 +40,7 @@ const EventPage = ({goto}) => {
                         </Pillbox>                        
                     </section>
                     <section className="code">
-                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" showInput="true">
+                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning("123")}} showInput="true">
                             This is the group code shared by the primary organizer!!!
                         </Pillbox>
                     </section>
