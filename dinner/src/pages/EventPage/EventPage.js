@@ -5,7 +5,7 @@ import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import React, {useState, useEffect} from 'react';
 
-const EventPage = () => {
+const EventPage = ({goto}) => {
     const [foodEvents, setFoodEvents] = useState([]);
 
     useEffect(()=> {
@@ -23,7 +23,7 @@ const EventPage = () => {
     return(
         <div>
             <main className="eventPage--container">
-                <Header  />
+                <Header event={goto} headerButtonTitle="Home" />
                 <div className="eventPage__main--container">
                     <section className="events">
                         <Pillbox imageType="heart" headerTitle="Upcoming Events" showButton="false">
@@ -36,9 +36,7 @@ const EventPage = () => {
                                         <LineItem key={index} leftContent={event.EventTitle} rightContent={event.EventDate} />
                                     ) 
                                 })
-                            }
-                            
-
+                            }      
                         </Pillbox>                        
                     </section>
                     <section className="code">

@@ -7,7 +7,7 @@ const landingPage = ({goto}) => {
     return(
         <div>
             <main className="landingPage__main--container">
-                <Header event={goto}/>
+                <Header event={goto} headerButtonTitle="Start" />
                 <section className="landingPage__topContent--container">
                     <img src={food} className="image__food--style" alt="" />
                     <div className="topContent__content--container">

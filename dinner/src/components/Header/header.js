@@ -1,7 +1,7 @@
 import ChefHeart from "../../images/chef-heart-green.png";
 import HeaderButton from "../HeaderButton/HeaderButton";
 import "./header.css";
-const Header = ({event}) => {
+const Header = ({event, headerButtonTitle}) => {
     return(
         <div className="header--container">
             <div className="header__title--container">
@@ -9,7 +9,7 @@ const Header = ({event}) => {
                 <h1>Sunday's Family Dinner <span className="header__title--style">& Potluck</span></h1>
             </div>
             <div className="header__button--container">
-                <HeaderButton event={event} mode="Start" />
+                <HeaderButton event={event} headerButtonTitle={headerButtonTitle} />
             </div>
         </div>
     );

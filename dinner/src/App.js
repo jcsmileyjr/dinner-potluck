@@ -13,7 +13,7 @@ function App() {
   return (
     <div  className="App">
       {currentPage === "Landing Page" && <LandingPage goto={() => {goToPage("Event Page")}} />}
-      {currentPage === "Event Page" && <EventPage />}
+      {currentPage === "Event Page" && <EventPage goto={() => {goToPage("Landing Page")}} />}
     </div>
   );
 }

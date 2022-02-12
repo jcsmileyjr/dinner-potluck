@@ -1,8 +1,8 @@
 import "./headerButton.css";
-const HeaderButton = ({mode, event}) => {
+const HeaderButton = ({headerButtonTitle, event}) => {
     return(
         <div>
-            <button onClick={()=> {event()}} type="button" className="HeaderButton__button--style">{mode}</button>
+            <button onClick={()=> {event()}} type="button" className="HeaderButton__button--style">{headerButtonTitle}</button>
         </div>
     );
 }
