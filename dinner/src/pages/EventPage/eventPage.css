@@ -24,12 +24,6 @@
     grid-area: events;
 }
 
-.events__content--container {
-    display: flex;
-    justify-content: space-between;
-    font-weight: bold;
-}
-
 .create {
     grid-area: create;
 }
@@ -38,10 +32,10 @@
     .eventPage--container {
         max-width: 600px; 
         margin: 0 auto;
-
     }
     
     .eventPage__main--container {
+        gap: 20px;
         grid-template-columns: 1fr 1fr;
         grid-template-rows: 1fr 1fr;
         grid-template-areas: 

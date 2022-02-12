@@ -1,9 +1,8 @@
 import "./eventPage.css";
 import "../../App.css";
 import Header from "../../components/Header/header";
-import heart from "../../images/heart-1.png";
-import chef from "../../images/chef-plain.png";
 import Pillbox  from "../../components/Pillbox/Pillbox";
+import LineItem from "../../components/LineItem/LineItem";
 
 const EventPage = () => {
     return(
@@ -13,9 +12,9 @@ const EventPage = () => {
                 <div className="eventPage__main--container">
                     <section className="events">
                         <Pillbox imageType="heart" headerTitle="Upcoming Events" showButton="false">
-                            <div className="events__content--container">
-                                <span>Smiley's Brunch</span><span>2/2</span>
-                            </div>
+                            <LineItem leftContent="Smiley's Brunch" rightContent="2/2" />
+                            <LineItem leftContent="Neighborhood Picnic" rightContent="3/1" />
+                            <LineItem leftContent="Company Grill" rightContent="3/15" />
                         </Pillbox>                        
                     </section>
                     <section className="code">
