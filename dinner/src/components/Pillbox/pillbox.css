@@ -35,6 +35,9 @@
     font-weight: bold;
     letter-spacing: 1.2px;
     font-family: Cambria, serif;
+    margin-bottom: 10px;
+    box-shadow: 1px 3px 6px rgb(216, 214, 214);
+    border:none;
   }
 
   .lightGreen {
@@ -50,4 +53,21 @@
   .pillbox__text--style {
     color: black;
     font-weight: bold;
+  }
+
+  .pillbox__input--style {
+    border-radius: 8px;
+    padding: 8px;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-family: Cambria, serif;
+    margin-bottom: 20px;
+    background-color: var(--Neutral-white);
+    box-shadow: 1px 3px 6px rgb(216, 214, 214);
+    border: 1px solid var(--Primary-Dark-green);
+  }
+
+  .shadow {
+    box-shadow: 1px 3px 6px rgb(216, 214, 214);
   }
