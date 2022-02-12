@@ -3,8 +3,24 @@ import "../../App.css";
 import Header from "../../components/Header/header";
 import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
+import React, {useState, useEffect} from 'react';
 
 const EventPage = () => {
+    const [foodEvents, setFoodEvents] = useState([]);
+
+    useEffect(()=> {
+        updateData();
+    }, [])
+
+    const updateData = () => {        
+        fetch("../../data/eventData.json")
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                setFoodEvents(data)
+        });
+    };
+
     return(
         <div>
             <main className="eventPage--container">
@@ -12,9 +28,17 @@ const EventPage = () => {
                 <div className="eventPage__main--container">
                     <section className="events">
                         <Pillbox imageType="heart" headerTitle="Upcoming Events" showButton="false">
-                            <LineItem leftContent="Smiley's Brunch" rightContent="2/2" />
-                            <LineItem leftContent="Neighborhood Picnic" rightContent="3/1" />
-                            <LineItem leftContent="Company Grill" rightContent="3/15" />
+                            {foodEvents.length === 0 &&
+                                <p>No events found. Will update on your next visit after you join a group or create an event.</p>
+                            }
+                            {foodEvents.length > 0 &&
+                                <div>                            
+                                    <LineItem leftContent="Smiley's Brunch" rightContent="2/2" />
+                                    <LineItem leftContent="Neighborhood Picnic" rightContent="3/1" />
+                                    <LineItem leftContent="Company Grill" rightContent="3/15" />
+                                </div>
+                            }
+
                         </Pillbox>                        
                     </section>
                     <section className="code">
