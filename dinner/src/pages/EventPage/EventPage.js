@@ -18,12 +18,12 @@ const EventPage = () => {
                         </Pillbox>                        
                     </section>
                     <section className="code">
-                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonColor='dark' buttonTitle="Join" showButton="true">
+                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" showInput="true">
                             This is the group code shared by the primary organizer!!!
                         </Pillbox>
                     </section>
                     <section className="create">                        
-                        <Pillbox imageType="chef" headerTitle="Create an Event" buttonColor='dark' buttonTitle="Create" showButton="true">
+                        <Pillbox imageType="chef" headerTitle="Create an Event" buttonTitle="Create" showButton="true">
                             Let's plan the What, When, & Where. At the end, a code will generate to be share with others.
                         </Pillbox>
                     </section>
