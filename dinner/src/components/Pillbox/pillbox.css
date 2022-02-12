@@ -77,3 +77,8 @@
   .shadow {
     box-shadow: 1px 3px 6px rgb(216, 214, 214);
   }
+
+  .pillbox__error--style {
+    color: var(--Neutral-red);
+    margin-top: 0;
+  }

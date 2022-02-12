@@ -5,7 +5,7 @@ import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import React, {useState, useEffect} from 'react';
 
-const EventPage = ({goto, joinPlanning}) => {
+const EventPage = ({goto, joinPlanning, eventInputError}) => {
     const [foodEvents, setFoodEvents] = useState([]);
     const [joinCode, setJoinCode] = useState("");
 
@@ -41,7 +41,7 @@ const EventPage = ({goto, joinPlanning}) => {
                         </Pillbox>                        
                     </section>
                     <section className="code">
-                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning(joinCode)}} showInput="true" inputEvent={setJoinCode}>
+                        <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning(joinCode)}} showInput="true" inputEvent={setJoinCode} showInputError={eventInputError} inputErrorMessage="Incorrect event code. Please check with your event's organizer for the correct code.">
                             This is the group code shared by the primary organizer!!!
                         </Pillbox>
                     </section>

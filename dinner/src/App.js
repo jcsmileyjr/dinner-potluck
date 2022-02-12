@@ -6,6 +6,7 @@ import React, {useState} from 'react';
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Landing Page");
+  const [showInputError, setInputError] = useState(false);
 
   const goToPage = (page) => {
     setCurrentPage(page);
@@ -13,20 +14,17 @@ function App() {
 
   const validateEventCode = code => {
     const presetCode = "123"
-    console.log(`Code is ${code}`)
     if(code === presetCode){
-      console.log("Pass. Return true")
       goToPage("Planning Page");
     }else{
-      console.log("Failed. Return false")
-      return false;
+      setInputError(true);
     }
   }
 
   return (
     <div  className="App">
       {currentPage === "Landing Page" && <LandingPage goto={() => {goToPage("Event Page")}} />}
-      {currentPage === "Event Page" && <EventPage goto={() => {goToPage("Landing Page")}} joinPlanning={(code) => {validateEventCode(code)}} />}
+      {currentPage === "Event Page" && <EventPage goto={() => {goToPage("Landing Page")}} joinPlanning={(code) => {validateEventCode(code)}} eventInputError={showInputError} />}
       {currentPage === "Planning Page" && <PlanningPage goto={() => {goToPage("Landing Page")}} />}
     </div>
   );
