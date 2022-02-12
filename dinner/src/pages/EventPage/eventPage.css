@@ -1,7 +1,9 @@
+@import url("../../App.css");
+
 .eventPage--container {
     width: 90%;
     margin: 0 auto;
-
+    
 }
 
 .eventPage__main--container {
@@ -22,7 +24,12 @@
 
 .events {
     grid-area: events;
-    background-color: blue;
+}
+
+.events__content--container {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
 }
 
 .create {
