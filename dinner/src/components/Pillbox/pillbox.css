@@ -69,6 +69,10 @@
     border: 1px solid var(--Primary-Dark-green);
   }
 
+  .pillbox__input--style:focus-visible {
+    outline: 1px solid var(--Primary-Dark-green)
+  }
+
   .shadow {
     box-shadow: 1px 3px 6px rgb(216, 214, 214);
   }
