@@ -6,7 +6,7 @@ import "./landingPage.css";
 const landingPage = ({goto}) => {
     return(
         <div>
-            <main>
+            <main className="landingPage__main--container">
                 <Header event={goto}/>
                 <section className="landingPage__topContent--container">
                     <img src={food} className="image__food--style" alt="" />

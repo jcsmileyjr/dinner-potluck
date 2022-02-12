@@ -1,0 +1,47 @@
+.eventPage--container {
+    width: 90%;
+    margin: 0 auto;
+
+}
+
+.eventPage__main--container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3fr;
+    grid-template-areas: 
+    "code"
+    "events"
+    "create";
+}
+
+.code {
+    grid-area: code;
+    
+    background-color: red;
+}
+
+.events {
+    grid-area: events;
+    background-color: blue;
+}
+
+.create {
+    grid-area: create;
+    background-color: green;
+}
+
+@media only screen and (min-width: 600px) {
+    .eventPage--container {
+        max-width: 600px; 
+        margin: 0 auto;
+
+    }
+    
+    .eventPage__main--container {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        grid-template-areas: 
+        "events code"
+        ". create";
+    }
+}

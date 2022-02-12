@@ -1,4 +1,4 @@
-main {
+.landingPage__main--container {
     max-width: 600px;
     margin: 0 auto;
 }
@@ -81,7 +81,7 @@ main {
 }
 
 @media only screen and (max-width: 600px) {
-    main {
+    .landingPage__main--container {
         width: 90%;
     }
 
