@@ -9,8 +9,8 @@ const PlanningPage = () => {
         <div>
             <main className="planningPage--container">
                 <Header />
+                <h1 className="planning__pageTitle--style">Smiley's Brunch</h1>
                 <div className="planningPage__main--container">
-                    <h1 className="planning__pageTitle--style">Smiley's Brunch</h1>
                     <section className="planningPage__menu--container">
                         <Menu 
                             headerTitle="Menu"

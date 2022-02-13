@@ -10,14 +10,28 @@
     flex-direction: column;
 }
 
-.planningPage__menu--container {
-    
-}
-
-.planningPage__popularItems--container {
-    
+.planningPage__menu--container, .planningPage__popularItems--container {
+    flex:1;
 }
 
 .planning__pageTitle--style {
     text-align: center;
+    margin-top: 0;
+    color: var(--Primary-Dark-green)
+}
+
+@media only screen and (min-width: 600px) {
+    .planningPage--container {
+        max-width: 600px; 
+        margin: 0 auto;
+    }
+    
+    .planningPage__main--container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .planning__pageTitle--style {
+        margin-top: initial;
+    }
 }
