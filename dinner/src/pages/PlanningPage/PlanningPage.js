@@ -4,11 +4,11 @@ import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import Menu from "../../components/Menu/Menu";
 
-const PlanningPage = () => {
+const PlanningPage = ({goto}) => {
     return(
         <div>
             <main className="planningPage--container">
-                <Header />
+                <Header event={goto} headerButtonTitle="Home" />
                 <h1 className="planning__pageTitle--style">Smiley's Brunch</h1>
                 <div className="planningPage__main--container">
                     <section className="planningPage__menu--container">
