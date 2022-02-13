@@ -1,7 +1,8 @@
 @import url("../../App.css");
 
 .eventPage--container {
-    width: 90%;
+    max-width: 350px;
+    min-width: 300px;
     margin: 0 auto;
     
 }

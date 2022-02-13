@@ -1,7 +1,8 @@
 @import url("../../App.css");
 
 .planningPage--container {
-    width: 90%;
+    max-width: 350px;
+    min-width: 300px;
     margin: 0 auto;
 }
 
@@ -10,8 +11,12 @@
     flex-direction: column;
 }
 
-.planningPage__menu--container, .planningPage__popularItems--container {
-    flex:1;
+.planningPage__menu--container {
+    flex:1.1;
+}
+
+.planningPage__popularItems--container{
+    flex: 1;
 }
 
 .planning__pageTitle--style {
