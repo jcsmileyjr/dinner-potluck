@@ -43,6 +43,7 @@
   .lightGreen {
     background-color: var(--Neutral-light-green);
     color: black;
+    border: 1px solid var(--Primary-Dark-green);
   }
 
   .darkGreen {

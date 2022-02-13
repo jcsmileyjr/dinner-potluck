@@ -1,0 +1,23 @@
+@import url("../../App.css");
+
+.planningPage--container {
+    width: 90%;
+    margin: 0 auto;
+}
+
+.planningPage__main--container {
+    display: flex;
+    flex-direction: column;
+}
+
+.planningPage__menu--container {
+    
+}
+
+.planningPage__popularItems--container {
+    
+}
+
+.planning__pageTitle--style {
+    text-align: center;
+}
