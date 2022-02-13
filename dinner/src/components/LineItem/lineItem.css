@@ -1,6 +1,19 @@
+@import url("../../App.css");
+
 .lineItem--container {
     display: flex;
     justify-content: space-between;
     font-weight: bold;
     font-size: large;
+    margin-bottom: 5px;
+}
+
+.lineItem__button--style {
+    background-color: var(--Primary-Dark-green);
+    border-radius: 8px;
+    border: 1px solid var(--Primary-Dark-green);
+    font-weight: bold;
+    box-shadow: 1px 3px 6px rgb(216, 214, 214);
+    padding: 7px 15px;
+    color: white;
 }

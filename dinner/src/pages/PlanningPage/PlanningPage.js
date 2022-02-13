@@ -19,6 +19,10 @@ const PlanningPage = ({goto}) => {
                             showButton= "true"                            
                         >
                             <LineItem leftContent="Fried Chicken" rightContent="Emma Jackason" />
+                            <LineItem leftContent="Spaghetti" rightContent="Little Ricky" />
+                            <LineItem leftContent="Fried Fish" rightContent="Janet Henderson" />
+                            <LineItem leftContent="Drinks" rightContent="TJ" />
+                            <LineItem leftContent="Salad" hasButton="true" buttonTitle="I want this" />
                         </Menu>
                     </section>
                     <section className="planningPage__popularItems--container">
