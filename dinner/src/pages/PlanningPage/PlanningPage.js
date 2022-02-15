@@ -3,6 +3,7 @@ import Header from "../../components/Header/header";
 import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import Menu from "../../components/Menu/Menu";
+import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 import React, {useState} from 'react';
 
 const PlanningPage = ({goto, event}) => {
@@ -11,7 +12,7 @@ const PlanningPage = ({goto, event}) => {
      * Create function that calls new component UpdateMenu
      * Component UpdateMenu takes in the "food item" or allow write in, user input "name"
      * It has a function that update the planning page's menu
-     * 
+     * To be use with Designate, Write in, I want this
      */
 
     const [eventData, setEventData] = useState(event);
@@ -52,6 +53,8 @@ const PlanningPage = ({goto, event}) => {
                         >
                             View dozens of popular food items with pictures, images, and recipes. 
                         </Pillbox>
+                    
+        <UpdateMenu />
                     </section>
                 </div>
             </main>

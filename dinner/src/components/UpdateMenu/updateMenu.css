@@ -1,0 +1,60 @@
+@import url("../../App.css");
+.updateMenu--container {
+    display: flex;
+    flex-direction: column;
+    margin: 5px 5px 20px 5px;
+    background-color: var(--Primary-Dark-green);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 10px;
+}
+
+.updateMenu__input--container {
+    margin-bottom: 10px;
+}
+
+.updateMenu__header--style {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+}
+
+
+.pillbox__input--style {
+    border-radius: 8px;
+    padding: 8px;
+    width: 94%;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-family: Cambria, serif;
+    margin-bottom: 20px;
+    background-color: var(--Neutral-white);
+    box-shadow: 1px 3px 6px var(--Neutral-box-shadow-dark-green);
+    border: 1px solid var(--Primary-Dark-green);
+    text-align: center;
+}
+
+.updateMenu__button--style {
+    border-radius: 8px;
+    width: 100%;
+    padding: 8px;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1.2px;
+    font-family: Cambria, serif;
+    margin-bottom: 10px;
+    box-shadow: 1px 3px 6px var(--Neutral-box-shadow-dark-green);
+    border:none;
+  }
+
+  .confirmButton--style {
+      background-color: var(--Neutral-light-green);
+  }
+
+  .cancelButton--style {
+      background-color: var(--Neutral-red);
+      color: white;
+      margin-top: 10px;
+  }
