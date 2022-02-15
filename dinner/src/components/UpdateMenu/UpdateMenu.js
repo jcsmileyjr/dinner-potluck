@@ -2,27 +2,28 @@ import "./updateMenu.css";
 import "../Pillbox/pillbox.css";
 import heart from "../../images/heart-1.png";
 
-const UpdateMenu = ({inputEvent, buttonEvent}) => {
+const UpdateMenu = ({inputNameEvent,inputFoodEvent, confirmEvent, closeUpdateMenu, isVisible= false, prepickedFood}) => {
+
     return(
-        <section className="updateMenu--container">            
+        <section className={`updateMenu--container ${isVisible?'':'hide'}`}>            
             <div className="updateMenu__input--container">
                 <div className="updateMenu__header--style">
                     <h2 className="">What is your Name</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input type="text" className="pillbox__input--style" onChange={(e) => {inputEvent(e.target.value)}} />
+                <input type="text" className="pillbox__input--style" onChange={(e) => {inputNameEvent(e.target.value)}} />
             </div>
             <div className="updateMenu__input--container">
                 <div className="updateMenu__header--style">
                     <h2 className="">What are you Bringing</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input type="text" className="pillbox__input--style" onChange={(e) => {inputEvent(e.target.value)}} />
+                <input type="text" value={prepickedFood} className="pillbox__input--style" onChange={(e) => {inputFoodEvent(e.target.value)}} />
             </div>
-            <button type="button" onClick={()=> {buttonEvent()}} className="updateMenu__button--style confirmButton--style">
+            <button type="button" onClick={()=> {confirmEvent()}} className="updateMenu__button--style confirmButton--style">
                     Confirm
             </button>
-            <button type="button" onClick={()=> {buttonEvent()}} className="updateMenu__button--style cancelButton--style">
+            <button type="button" onClick={()=> {closeUpdateMenu()}} className="updateMenu__button--style cancelButton--style">
                     Cancel
             </button>
         </section>

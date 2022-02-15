@@ -16,6 +16,19 @@ const PlanningPage = ({goto, event}) => {
      */
 
     const [eventData, setEventData] = useState(event);
+    const [showModal, setShowModal] = useState(false);
+    const [chosenFood, setChosenFood] = useState("");
+    const [userInputtedName, setUserInputtedName] = useState("");
+
+    const openUpdateMenu = (foodItem) => {
+        setShowModal(true);
+        setChosenFood(foodItem);
+    }
+
+    const closeUpdateMenu = () => {
+        setShowModal(false);
+        console.log(userInputtedName);
+    }
 
     return(
         <div>
@@ -34,7 +47,7 @@ const PlanningPage = ({goto, event}) => {
                                 return(
                                     <div key={index}>
                                         {item.asignee === 'none' &&
-                                            <LineItem leftContent={item.food} hasButton="true" buttonTitle="I want this" />
+                                            <LineItem leftContent={item.food} hasButton="true" buttonTitle="I want this" buttonEvent={() => openUpdateMenu(item.food)} />
                                         }
                                         {item.asignee !== 'none' &&
                                             <LineItem leftContent={item.food} rightContent={item.asignee} />
@@ -54,7 +67,7 @@ const PlanningPage = ({goto, event}) => {
                             View dozens of popular food items with pictures, images, and recipes. 
                         </Pillbox>
                     
-        <UpdateMenu />
+                        <UpdateMenu isVisible={showModal} closeUpdateMenu={closeUpdateMenu} prepickedFood = {chosenFood} inputNameEvent={setUserInputtedName}/>
                     </section>
                 </div>
             </main>
