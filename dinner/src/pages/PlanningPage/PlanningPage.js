@@ -48,6 +48,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               buttonColor="light"
               buttonTitle="Write in your meal"
               showButton="true"
+              buttonEvent={() => openUpdateMenu("")}
             >
               {eventData.menu.map((item, index) => {
                 return (
@@ -85,6 +86,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               isVisible={showModal}
               closeUpdateMenu={closeUpdateMenu}
               prepickedFood={chosenFood}
+              inputFoodEvent={setChosenFood}
               inputNameEvent={setUserInputtedName}
               confirmEvent={() => {
                 confirmUpdateMenu();
