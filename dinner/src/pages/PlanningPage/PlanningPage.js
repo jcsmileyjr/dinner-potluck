@@ -86,6 +86,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               isVisible={showModal}
               closeUpdateMenu={closeUpdateMenu}
               prepickedFood={chosenFood}
+              inputName = {userInputtedName}
               inputFoodEvent={setChosenFood}
               inputNameEvent={setUserInputtedName}
               confirmEvent={() => {
