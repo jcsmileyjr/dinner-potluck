@@ -30,11 +30,19 @@ function App() {
     setInputError(true);
   }
 
+  const confirmPickedItem = (foodItem, userName) => {
+    currentEvent.menu.forEach(item => {
+      if(item.food === foodItem){
+        item.asignee = userName;
+      }
+    });
+  }
+
   return (
     <div  className="App">
       {currentPage === "Landing Page" && <LandingPage goto={() => {goToPage("Event Page")}} />}
       {currentPage === "Event Page" && <EventPage goto={() => {goToPage("Landing Page")}} joinPlanning={(code) => {getCurrentEvent(code)}} eventInputError={showInputError} />}
-      {currentPage === "Planning Page" && <PlanningPage event={currentEvent} goto={() => {goToPage("Landing Page")}} />}
+      {currentPage === "Planning Page" && <PlanningPage confirmPicked={(foodItem, userName) => confirmPickedItem(foodItem, userName)} event={currentEvent} goto={() => {goToPage("Landing Page")}} />}
     </div>
   );
 }
