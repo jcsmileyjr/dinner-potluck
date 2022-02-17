@@ -6,10 +6,19 @@
     margin: 0 auto;
 }
 
+.createPage__titleArea--container {
+    display: flex;
+    justify-content: space-between;
+    color: var(--Primary-Dark-green);
+}
+
 .createPage__pageTitle--style {
-    text-align: center;
     margin-top: 0;
-    color: var(--Primary-Dark-green)
+}
+
+.createPage__pageDate--style {
+    font-size: xx-large;
+    font-weight: bold;
 }
 
 .createPage__main--container {
