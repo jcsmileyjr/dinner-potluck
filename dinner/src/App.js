@@ -32,6 +32,12 @@ function App() {
     setInputError(true);
   };
 
+  const createNewEvent = (event) => {
+    setCurrentEvent(event);
+    goToPage("Planning Page");
+    setInputError(false);
+  }
+
   // Function called in the UpdateMenu component to update event's menu
   const confirmPickedItem = (foodItem, userName) => {
     let foodItemFound = false;
@@ -86,8 +92,11 @@ function App() {
           goto={() => {
             goToPage("Landing Page");
           }}
-          gotoPlanning={() => {
+          gotoEventPage={() => {
             goToPage("Event Page");
+          }}
+          createEvent={(event) => {
+            createNewEvent(event);
           }}
         />
       )}      

@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import Header from "../../components/Header/header";
 import EventWizard from "../../components/EventWizard/EventWizard";
 
-const CreatePage = ({ goto, gotoPlanning }) => {
+const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
   const [showModal, setShowModal] = useState(true);
   const [currentWizardData, setCurrentWizardData] = useState("");
   const [currentWizard, setCurrentWizard] = useState(1);
@@ -43,8 +43,21 @@ const CreatePage = ({ goto, gotoPlanning }) => {
 
   const cancelWizard = () => {
     setShowModal(false);
-    gotoPlanning();
+    gotoEventPage();
   };
+
+  const finishedWizard = () => {
+    if(currentWizardData !== ""){
+        let wizardEvent = newEvent;
+        const menuItem = {"food":currentWizardData, "asignee":"none"}
+        wizardEvent.menu.push(menuItem);
+        setNewEvent(newEvent => ({
+            ...newEvent, ...wizardEvent
+        }) )
+    }
+    setShowModal(false);
+    createEvent(newEvent);
+  }
 
   return (
     <div>
@@ -79,7 +92,8 @@ const CreatePage = ({ goto, gotoPlanning }) => {
                     eventWizardData={currentWizardData}
                     getWizardData={setCurrentWizardData}
                     confirmWizrdData={confirmWizard}
-                    closeWizardData={cancelWizard}
+                    closeWizardData={finishedWizard}
+                    isDone = {true}
                 />
             }            
         </div>
