@@ -7,7 +7,7 @@ const CreatePage = ({ goto, gotoPlanning }) => {
   const [showModal, setShowModal] = useState(true);
   const [currentWizardData, setCurrentWizardData] = useState("");
   const [currentWizard, setCurrentWizard] = useState(1);
-  const [newEvent, setNewEvent] = useState({});
+  const [newEvent, setNewEvent] = useState({menu:[]});
 
   const confirmWizard = () => {
     console.log(currentWizardData);
@@ -17,17 +17,26 @@ const CreatePage = ({ goto, gotoPlanning }) => {
         setNewEvent(newEvent => ({
             ...newEvent, ...wizardEvent
         }) )
-        setCurrentWizard(2);
+        setCurrentWizard(prevCurrent => prevCurrent + 1);
     }
     if(currentWizard === 2){
         wizardEvent.EventDate = currentWizardData;
         setNewEvent(newEvent => ({
             ...newEvent, ...wizardEvent
         }) )
-        setCurrentWizard(3);
-        console.log(newEvent)
-    }    
+        setCurrentWizard(prevCurrent => prevCurrent + 1);
+    }
     
+    if(currentWizard >= 3){
+        const menuItem = {"food":currentWizardData, "asignee":"none"}
+        wizardEvent.menu.push(menuItem);
+        setNewEvent(newEvent => ({
+            ...newEvent, ...wizardEvent
+        }) )
+        setCurrentWizard(prevCurrent => prevCurrent + 1);
+    }
+    
+    console.log(newEvent)
     setCurrentWizardData("")
     
   };
@@ -46,7 +55,7 @@ const CreatePage = ({ goto, gotoPlanning }) => {
             {currentWizard === 1 && 
                 <EventWizard
                     isVisible={showModal}
-                    eventWizardTitle="Short title for the Event"
+                    eventWizardTitle="Short Title for the Event"
                     eventWizardData={currentWizardData}
                     getWizardData={setCurrentWizardData}
                     confirmWizrdData={confirmWizard}
@@ -56,13 +65,23 @@ const CreatePage = ({ goto, gotoPlanning }) => {
             {currentWizard === 2 && 
                 <EventWizard
                     isVisible={showModal}
-                    eventWizardTitle="What is the event's Date"
+                    eventWizardTitle="What is the Event's Date"
                     eventWizardData={currentWizardData}
                     getWizardData={setCurrentWizardData}
                     confirmWizrdData={confirmWizard}
                     closeWizardData={cancelWizard}
                 />
             }
+            {currentWizard >= 3 && 
+                <EventWizard
+                    isVisible={showModal}
+                    eventWizardTitle="Requested Menu Item"
+                    eventWizardData={currentWizardData}
+                    getWizardData={setCurrentWizardData}
+                    confirmWizrdData={confirmWizard}
+                    closeWizardData={cancelWizard}
+                />
+            }            
         </div>
       </main>
     </div>
