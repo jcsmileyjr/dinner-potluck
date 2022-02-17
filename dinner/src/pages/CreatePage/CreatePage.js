@@ -163,7 +163,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
                     <section className="planningPage__popularItems--container">
                         <Pillbox
                         headerTitle="Pick a Popular Item"
-                        buttonTitle="Write in your meal"
+                        buttonTitle="Search Database"
                         showButton="true"
                         >
                             View dozens of popular food items with pictures, images, and

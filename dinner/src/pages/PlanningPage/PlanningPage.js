@@ -75,7 +75,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
           <section className="planningPage__popularItems--container">
             <Pillbox
               headerTitle="Pick a Popular Item"
-              buttonTitle="Write in your meal"
+              buttonTitle="Search Database"
               showButton="true"
             >
               View dozens of popular food items with pictures, images, and
