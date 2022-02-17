@@ -86,6 +86,9 @@ function App() {
           goto={() => {
             goToPage("Landing Page");
           }}
+          gotoPlanning={() => {
+            goToPage("Event Page");
+          }}
         />
       )}      
     </div>
