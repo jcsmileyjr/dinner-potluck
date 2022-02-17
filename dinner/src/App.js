@@ -22,6 +22,7 @@ function App() {
           if (event.code === code) {
             setCurrentEvent(event);
             goToPage("Planning Page");
+            setInputError(false);
             return;
           }
         });
