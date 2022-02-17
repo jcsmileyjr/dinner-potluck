@@ -1,0 +1,31 @@
+@import url("../../App.css");
+
+.eventWizard--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--Primary-Dark-green);
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 10px;
+    max-width: 281px;
+    max-height: 300px;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 125px auto
+}
+
+.eventWizard__title--style {
+    text-align: center;
+    color: white;
+}
+
+
+
+
+
+
