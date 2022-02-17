@@ -47,14 +47,16 @@ const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
   };
 
   const finishedWizard = () => {
+    let wizardEvent = newEvent;
+    wizardEvent.code = "111";
     if(currentWizardData !== ""){
-        let wizardEvent = newEvent;
         const menuItem = {"food":currentWizardData, "asignee":"none"}
         wizardEvent.menu.push(menuItem);
         setNewEvent(newEvent => ({
             ...newEvent, ...wizardEvent
         }) )
     }
+
     setShowModal(false);
     createEvent(newEvent);
   }

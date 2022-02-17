@@ -35,7 +35,6 @@ function App() {
   const createNewEvent = (event) => {
     setCurrentEvent(event);
     goToPage("Planning Page");
-    setInputError(false);
   }
 
   // Function called in the UpdateMenu component to update event's menu
