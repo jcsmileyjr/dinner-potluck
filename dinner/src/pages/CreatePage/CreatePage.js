@@ -5,9 +5,13 @@ import EventWizard from "../../components/EventWizard/EventWizard";
 import Menu from "../../components/Menu/Menu";
 import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
+import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 
 const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
   const [showModal, setShowModal] = useState(true);
+  const [showDesignateModal, setDesignateModal] = useState(false);
+  const [chosenFood, setChosenFood] = useState("");
+  const [userInputtedName, setUserInputtedName] = useState("");
   const [currentWizardData, setCurrentWizardData] = useState("");
   const [currentWizard, setCurrentWizard] = useState(1);
   const [newEvent, setNewEvent] = useState({menu:[]});
@@ -70,18 +74,23 @@ const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
   }
 
   const openUpdateMenu = (foodItem) => {
-    setShowModal(true);
-    //setChosenFood(foodItem);
-    //setUserInputtedName("");
+    setDesignateModal(true);
+    setChosenFood(foodItem);
+    setUserInputtedName("");
   };
 
   const closeUpdateMenu = () => {
-    setShowModal(false);
-    //setUserInputtedName("");
+    setDesignateModal(false);
+    setUserInputtedName("");
   };
 
-  const confirmUpdateMenu = () => {
-    //confirmPicked(chosenFood, userInputtedName);
+  // Function to update event's menu food by person name
+  const designatePerson = () => {
+    newEvent.menu.forEach((item) => {
+      if (item.food === chosenFood) {
+        item.asignee = userInputtedName;
+      }
+    });;
     closeUpdateMenu();
   };  
 
@@ -160,17 +169,17 @@ const CreatePage = ({ goto, gotoEventPage, createEvent}) => {
                             View dozens of popular food items with pictures, images, and
                             recipes.
                         </Pillbox>
-                        {/* <UpdateMenu
-                            isVisible={showModal}
+                        <UpdateMenu
+                            isVisible={showDesignateModal}
                             closeUpdateMenu={closeUpdateMenu}
                             prepickedFood={chosenFood}
                             inputName = {userInputtedName}
                             inputFoodEvent={setChosenFood}
                             inputNameEvent={setUserInputtedName}
                             confirmEvent={() => {
-                                confirmUpdateMenu();
+                                designatePerson();
                             }}
-                        />                         */}
+                        />                        
                     </section>
                 </div>
             } 
