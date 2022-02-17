@@ -1,0 +1,34 @@
+@import url("../../App.css");
+
+.createPage--container {
+    max-width: 350px;
+    min-width: 300px;
+    margin: 0 auto;
+}
+
+.createPage__pageTitle--style {
+    text-align: center;
+    margin-top: 0;
+    color: var(--Primary-Dark-green)
+}
+
+.createPage__main--container {
+    display: flex;
+    flex-direction: column;
+}
+
+@media only screen and (min-width: 600px) {
+    .createPage--container {
+        max-width: 600px; 
+        margin: 0 auto;
+    }
+    
+    .createPage__main--container {
+        flex-direction: row;
+        gap: 20px;
+    }
+
+    .createPage__pageTitle--style {
+        margin-top: initial;
+    }
+}

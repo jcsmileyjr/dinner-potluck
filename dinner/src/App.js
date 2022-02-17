@@ -1,6 +1,7 @@
 import LandingPage from "./pages/LandingPage/landingPage";
 import EventPage from "./pages/EventPage/EventPage";
 import PlanningPage from "./pages/PlanningPage/PlanningPage";
+import CreatePage from "./pages/CreatePage/CreatePage";
 import "./App.css";
 import React, { useState } from "react";
 
@@ -63,6 +64,9 @@ function App() {
           joinPlanning={(code) => {
             getCurrentEvent(code);
           }}
+          gotoCreatePage={ () => {
+            goToPage("Create Page");
+          }}
           eventInputError={showInputError}
         />
       )}
@@ -77,6 +81,13 @@ function App() {
           }}
         />
       )}
+      {currentPage === "Create Page" && (
+        <CreatePage
+          goto={() => {
+            goToPage("Landing Page");
+          }}
+        />
+      )}      
     </div>
   );
 }

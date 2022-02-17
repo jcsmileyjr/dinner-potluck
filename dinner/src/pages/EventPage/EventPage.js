@@ -5,7 +5,7 @@ import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import React, {useState, useEffect} from 'react';
 
-const EventPage = ({goto, joinPlanning, eventInputError}) => {
+const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError}) => {
     const [foodEvents, setFoodEvents] = useState([]);
     const [joinCode, setJoinCode] = useState("");
 
@@ -46,7 +46,7 @@ const EventPage = ({goto, joinPlanning, eventInputError}) => {
                         </Pillbox>
                     </section>
                     <section className="create">                        
-                        <Pillbox imageType="chef" headerTitle="Create an Event" buttonTitle="Create" showButton="true">
+                        <Pillbox imageType="chef" headerTitle="Create an Event" buttonTitle="Create" showButton="true" buttonEvent={()=> {gotoCreatePage()}}>
                             Let's plan the What, When, & Where. At the end, a code will generate to be share with others.
                         </Pillbox>
                     </section>
