@@ -40,15 +40,17 @@ function App() {
 
   // Validate the user's code and return the menu if true
   const getCurrentEvent = (code) => {
+    let foundCode = true;
     allEvents.forEach((event) => {
       if (event.code === code) {
         setCurrentEvent(event);
         goToPage("Planning Page");
         setInputError(false);
+        foundCode = false;
         return;
       }
     });
-    setInputError(true);
+    if(foundCode) setInputError(true);
   };
 
   const createNewEvent = (event) => {
@@ -109,7 +111,7 @@ function App() {
           }}
           gotoCreatePage={ () => {
             goToPage("Create Page");
-          }}
+          }}showInputError
           eventInputError={showInputError}
         />
       )}
