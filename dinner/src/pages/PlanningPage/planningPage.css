@@ -25,6 +25,10 @@
     color: var(--Primary-Dark-green)
 }
 
+.underConstruction {
+    color: var(--Neutral-red);
+}
+
 @media only screen and (min-width: 600px) {
     .planningPage--container {
         max-width: 600px; 

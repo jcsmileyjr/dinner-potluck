@@ -23,13 +23,10 @@ function App() {
           .then((data) => {
               setAllEvents(data);
               localStorage.setItem("potluckData", JSON.stringify(data));
-              console.log(localStorage.getItem("potluckData"));
       });
     }else{
-      console.log("Data is already saved to local storage")
       let savedData = JSON.parse(localStorage.getItem('potluckData')); 
-      setAllEvents(savedData);
-      console.log(savedData);     
+      setAllEvents(savedData);   
     }
     
   };

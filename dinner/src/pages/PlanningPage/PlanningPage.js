@@ -80,6 +80,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
             >
               View dozens of popular food items with pictures, images, and
               recipes.
+              <p className="underConstruction">Under Construction!!!!</p>              
             </Pillbox>
 
             <UpdateMenu

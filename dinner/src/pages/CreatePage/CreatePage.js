@@ -19,7 +19,6 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [pageDate, setPageDate] = useState("None");
 
   const confirmWizard = () => {
-    console.log(currentWizardData);
     let wizardEvent = newEvent;
     if (currentWizard === 1) {
       setPageTitle(currentWizardData);
@@ -170,6 +169,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                 >
                     View dozens of popular food items with pictures, images, and
                     recipes.
+                    <p className="underConstruction">Under Construction!!!!</p>                    
                 </Pillbox>
                 <Pillbox
                   headerTitle="Group Code"
