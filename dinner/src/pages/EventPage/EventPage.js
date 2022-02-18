@@ -3,6 +3,7 @@ import "../../App.css";
 import Header from "../../components/Header/header";
 import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
+import HiddenLink from "../../components/HiddenLink/HiddenLink";
 import React, {useState} from 'react';
 
 const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventData}) => {
@@ -22,7 +23,9 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                             {foodEvents.length > 0 &&
                                 foodEvents.map((event, index) => {
                                     return(
-                                        <LineItem key={index} leftContent={event.EventTitle} rightContent={event.EventDate} />
+                                        <HiddenLink key={index} showPlanningPage={()=> joinPlanning(event.code)}>
+                                            <LineItem  leftContent={event.EventTitle} rightContent={event.EventDate} />
+                                        </HiddenLink>
                                     ) 
                                 })
                             }      

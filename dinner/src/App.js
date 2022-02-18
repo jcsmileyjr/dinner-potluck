@@ -17,7 +17,6 @@ function App() {
 
   const updateData = () => {   
     if (localStorage.getItem("potluckData") === null) {
-      console.log("Fetching Data")
       fetch("../../data/eventData.json")
           .then((response) => response.json())
           .then((data) => {
