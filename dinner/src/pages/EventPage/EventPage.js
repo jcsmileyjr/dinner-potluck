@@ -3,23 +3,11 @@ import "../../App.css";
 import Header from "../../components/Header/header";
 import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
-const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError}) => {
-    const [foodEvents, setFoodEvents] = useState([]);
+const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventData}) => {
+    const [foodEvents, setFoodEvents] = useState(eventData);
     const [joinCode, setJoinCode] = useState("");
-
-    useEffect(()=> {
-        updateData();
-    }, [])
-
-    const updateData = () => {        
-        fetch("../../data/eventData.json")
-            .then((response) => response.json())
-            .then((data) => {
-                setFoodEvents(data)
-        });
-    };
 
     return(
         <div>

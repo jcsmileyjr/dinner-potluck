@@ -3,12 +3,34 @@ import EventPage from "./pages/EventPage/EventPage";
 import PlanningPage from "./pages/PlanningPage/PlanningPage";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import "./App.css";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Landing Page");
   const [showInputError, setInputError] = useState(false);
   const [currentEvent, setCurrentEvent] = useState([]);
+  const [allEvents, setAllEvents] = useState([]);
+
+  useEffect(()=> {
+    updateData();
+  }, [])
+
+  const updateData = () => {   
+    if (localStorage.getItem("potluckData") === null) {
+      fetch("../../data/eventData.json")
+          .then((response) => response.json())
+          .then((data) => {
+              setAllEvents(data);
+              localStorage.setItem("potluckData", JSON.stringify(data));
+              console.log(localStorage.getItem("potluckData"));
+      });
+    }else{
+      let savedData = JSON.parse(localStorage.getItem('potluckData')); 
+      setAllEvents(savedData);
+      console.log(savedData);     
+    }
+    
+  };
 
   const goToPage = (page) => {
     setCurrentPage(page);
@@ -16,19 +38,14 @@ function App() {
 
   // Validate the user's code and return the menu if true
   const getCurrentEvent = (code) => {
-    fetch("../../data/eventData.json")
-      .then((response) => response.json())
-      .then((data) => {
-        data.forEach((event) => {
-          if (event.code === code) {
-            setCurrentEvent(event);
-            goToPage("Planning Page");
-            setInputError(false);
-            return;
-          }
-        });
-      });
-
+    allEvents.forEach((event) => {
+      if (event.code === code) {
+        setCurrentEvent(event);
+        goToPage("Planning Page");
+        setInputError(false);
+        return;
+      }
+    });
     setInputError(true);
   };
 
@@ -63,6 +80,7 @@ function App() {
       )}
       {currentPage === "Event Page" && (
         <EventPage
+          eventData={allEvents}
           goto={() => {
             goToPage("Landing Page");
           }}
