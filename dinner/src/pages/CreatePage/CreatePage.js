@@ -60,7 +60,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   const finishedWizard = () => {
     let wizardEvent = newEvent;
-    wizardEvent.code = "111";
+    wizardEvent.code = String(Math.floor(Math.random() * (200 - 1) + 1));
     if (currentWizardData !== "") {
       const menuItem = { food: currentWizardData, asignee: "none" };
       wizardEvent.menu.push(menuItem);

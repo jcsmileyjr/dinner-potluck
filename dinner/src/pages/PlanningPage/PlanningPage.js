@@ -39,7 +39,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
   return (
     <div>
       <main className="planningPage--container">
-        <Header event={goto} headerButtonTitle="Home" />
+        <Header event={goto} headerButtonTitle="Done" />
         <h1 className="planning__pageTitle--style">{eventData.EventTitle}</h1>
         <div className="planningPage__main--container">
           <section className="planningPage__menu--container">

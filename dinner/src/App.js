@@ -53,6 +53,10 @@ function App() {
 
   const createNewEvent = (event) => {
     setCurrentEvent(event);
+    let events = allEvents;
+    events.push(event);
+    setAllEvents(events);
+    localStorage.setItem("potluckData", JSON.stringify(events));
     goToPage("Planning Page");
   }
 
@@ -80,7 +84,7 @@ function App() {
         events[index] = currentEvent;
       }
     });
-    
+
     setAllEvents(events);
     localStorage.setItem("potluckData", JSON.stringify(events));
   }
