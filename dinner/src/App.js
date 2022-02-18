@@ -17,6 +17,7 @@ function App() {
 
   const updateData = () => {   
     if (localStorage.getItem("potluckData") === null) {
+      console.log("Fetching Data")
       fetch("../../data/eventData.json")
           .then((response) => response.json())
           .then((data) => {
@@ -25,6 +26,7 @@ function App() {
               console.log(localStorage.getItem("potluckData"));
       });
     }else{
+      console.log("Data is already saved to local storage")
       let savedData = JSON.parse(localStorage.getItem('potluckData')); 
       setAllEvents(savedData);
       console.log(savedData);     
@@ -67,7 +69,21 @@ function App() {
     if (foodItemFound === false) {
       currentEvent.menu.push({ food: foodItem, asignee: userName });
     }
+
+    updatePotluckData();
   };
+
+  const updatePotluckData = () => {
+    let events = allEvents;
+    events.forEach( (event, index) => {
+      if(event.code === currentEvent.code){
+        events[index] = currentEvent;
+      }
+    });
+    
+    setAllEvents(events);
+    localStorage.setItem("potluckData", JSON.stringify(events));
+  }
 
   return (
     <div className="App">
