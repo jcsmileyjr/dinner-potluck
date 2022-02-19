@@ -29,6 +29,10 @@
     grid-area: create;
 }
 
+.greenColor {
+    color: var(--Primary-Dark-green);
+}
+
 @media only screen and (min-width: 600px) {
     .eventPage--container {
         max-width: 600px; 

@@ -21,13 +21,17 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                                 <p>No events found. Will update on your next visit after you join a group or create an event.</p>
                             }                            
                             {foodEvents.length > 0 &&
-                                foodEvents.map((event, index) => {
-                                    return(
-                                        <HiddenLink key={index} showPlanningPage={()=> joinPlanning(event.code)}>
-                                            <LineItem  leftContent={event.EventTitle} rightContent={event.EventDate} />
-                                        </HiddenLink>
-                                    ) 
-                                })
+                                <div>{
+                                    foodEvents.map((event, index) => {
+                                        return(
+                                            <HiddenLink key={index} showPlanningPage={()=> joinPlanning(event.code)}>
+                                                <LineItem  leftContent={event.EventTitle} rightContent={event.EventDate} />
+                                            </HiddenLink>
+                                        ) 
+                                    })
+                                    }
+                                    <p className="greenColor">Click an event for more details</p>
+                                </div>
                             }      
                         </Pillbox>                        
                     </section>
