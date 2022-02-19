@@ -1,0 +1,17 @@
+{
+  "files": {
+    "main.css": "/dinner-potluck/static/css/main.d428b7c8.css",
+    "main.js": "/dinner-potluck/static/js/main.8e9abfe7.js",
+    "static/js/787.bb45ac9f.chunk.js": "/dinner-potluck/static/js/787.bb45ac9f.chunk.js",
+    "static/media/food.jpg": "/dinner-potluck/static/media/food.01fd213f43e00fd3e111.jpg",
+    "static/media/chef-heart-green.png": "/dinner-potluck/static/media/chef-heart-green.8e83eae629c8c433db96.png",
+    "index.html": "/dinner-potluck/index.html",
+    "main.d428b7c8.css.map": "/dinner-potluck/static/css/main.d428b7c8.css.map",
+    "main.8e9abfe7.js.map": "/dinner-potluck/static/js/main.8e9abfe7.js.map",
+    "787.bb45ac9f.chunk.js.map": "/dinner-potluck/static/js/787.bb45ac9f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d428b7c8.css",
+    "static/js/main.8e9abfe7.js"
+  ]
+}
