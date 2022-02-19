@@ -87,6 +87,15 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   // Function to update event's menu food by person name
   const designatePerson = () => {
+    if(userInputtedName === ""){
+      newEvent.menu.forEach((item) => {
+        if (item.food === chosenFood) {
+          item.asignee = "none";
+        }
+      });      
+      closeUpdateMenu()
+      return;
+    }
     newEvent.menu.forEach((item) => {
       if (item.food === chosenFood) {
         item.asignee = userInputtedName;

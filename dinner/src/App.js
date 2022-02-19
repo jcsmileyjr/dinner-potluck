@@ -60,9 +60,10 @@ function App() {
 
   // Function called in the UpdateMenu component to update event's menu
   const confirmPickedItem = (foodItem, userName) => {
+    if(userName === "") return;
     let foodItemFound = false;
     currentEvent.menu.forEach((item) => {
-      if (item.food === foodItem) {
+      if (item.food === foodItem && userName !== "") {
         item.asignee = userName;
         foodItemFound = true;
       }
