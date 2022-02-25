@@ -10,11 +10,12 @@
 .eventPage__main--container {
     display: grid;
     grid-template-columns: 1fr;
-    grid-template-rows: 3fr;
+    grid-template-rows: 4fr;
     grid-template-areas: 
     "code"
     "events"
-    "create";
+    "create"
+    "video";
 }
 
 .code {
@@ -33,6 +34,26 @@
     color: var(--Primary-Dark-green);
 }
 
+.video {
+    grid-area: video;
+    background-color: white;
+}
+
+.bottomcontent__instructions--style {
+    text-align: center;
+    margin-top: 0;
+}
+
+.bottomcontent__title--style {
+    color: var(--Primary-Dark-green);
+    text-align: center;
+    margin-bottom: 0;
+}
+
+.bottomcontent__createEvent--style {
+    width: 100%;
+}
+
 @media only screen and (min-width: 600px) {
     .eventPage--container {
         max-width: 600px; 
@@ -42,9 +63,10 @@
     .eventPage__main--container {
         gap: 20px;
         grid-template-columns: repeat(2, minmax(0, 1fr));;
-        grid-template-rows: 1fr 1fr;
+        grid-template-rows: .5fr .5fr .5fr;
         grid-template-areas: 
         "events code"
-        ". create";
+        ". create"
+        ". video";
     }
 }

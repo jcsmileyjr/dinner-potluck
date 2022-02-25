@@ -5,6 +5,7 @@ import Pillbox  from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import HiddenLink from "../../components/HiddenLink/HiddenLink";
 import React, {useState} from 'react';
+import howToCreateEvent from "../../images/CC-demo.gif";
 
 const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventData}) => {
     const [foodEvents, setFoodEvents] = useState(eventData);
@@ -45,6 +46,11 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                             Let's plan the What, When, & Where. At the end, a code will generate to be share with others.
                         </Pillbox>
                     </section>
+                    <div className="video">
+                        <h2 className="bottomcontent__title--style">How to Create an Event</h2>
+                        <p className="bottomcontent__instructions--style">Click to enlarge</p>
+                        <img className="bottomcontent__createEvent--style" src={howToCreateEvent} alt="" />
+                    </div>
                 </div>
             </main>
         </div>
