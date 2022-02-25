@@ -37,11 +37,15 @@
 .video {
     grid-area: video;
     background-color: white;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 10px;
 }
 
 .bottomcontent__instructions--style {
     text-align: center;
     margin-top: 0;
+    font-weight: bold;
 }
 
 .bottomcontent__title--style {
@@ -52,6 +56,32 @@
 
 .bottomcontent__createEvent--style {
     width: 100%;
+}
+
+.enlarge {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 10px 10px;
+    max-width: 330px;
+    max-height: inherit;
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: 125px auto
+}
+
+.hideExtraLabels {
+    display:none;
+}
+
+.enlargeVideo {
+    height: 100%;
 }
 
 @media only screen and (min-width: 600px) {

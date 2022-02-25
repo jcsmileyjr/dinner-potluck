@@ -6,10 +6,17 @@ import LineItem from "../../components/LineItem/LineItem";
 import HiddenLink from "../../components/HiddenLink/HiddenLink";
 import React, {useState} from 'react';
 import howToCreateEvent from "../../images/CC-demo.gif";
+import howToCreateMobile from "../../images/CC-demo-mobile.gif";
 
 const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventData}) => {
     const [foodEvents, setFoodEvents] = useState(eventData);
     const [joinCode, setJoinCode] = useState("");
+    const [showCreateEvent, setShowCreateEvent] = useState(false);
+
+    const showHowToVideo = () => {
+        setShowCreateEvent(prevCheck => !prevCheck);
+        console.log("I ran")
+    }
 
     return(
         <div>
@@ -46,10 +53,17 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                             Let's plan the What, When, & Where. At the end, a code will generate to be share with others.
                         </Pillbox>
                     </section>
-                    <div className="video">
-                        <h2 className="bottomcontent__title--style">How to Create an Event</h2>
-                        <p className="bottomcontent__instructions--style">Click to enlarge</p>
-                        <img className="bottomcontent__createEvent--style" src={howToCreateEvent} alt="" />
+                    <div onClick={() => {showHowToVideo()}} className={`video ${showCreateEvent?"enlarge":""}`}>
+                        <div className={`${showCreateEvent?"hideExtraLabels":""}`}>
+                            <h2 className="bottomcontent__title--style">How to Create an Event</h2>
+                            <p className="bottomcontent__instructions--style">Click to enlarge</p>
+                        </div>
+                        {showCreateEvent &&
+                            <img className={`bottomcontent__createEvent--style ${showCreateEvent?"enlargeVideo":""}`} src={howToCreateMobile} alt="" />
+                        }
+                        {showCreateEvent === false &&
+                            <img className={`bottomcontent__createEvent--style ${showCreateEvent?"enlargeVideo":""}`} src={howToCreateEvent} alt="" />
+                        }
                     </div>
                 </div>
             </main>
