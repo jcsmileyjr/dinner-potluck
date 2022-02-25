@@ -56,8 +56,8 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                     <div onClick={() => {showHowToVideo()}} className={`video ${showCreateEvent?"enlarge":""}`}>
                         <div className={`${showCreateEvent?"hideExtraLabels":""}`}>
                             <h2 className="bottomcontent__title--style">How to Create an Event</h2>
-                            <p className="bottomcontent__instructions--style">Click to enlarge</p>
                         </div>
+                        <p className="bottomcontent__instructions--style">Click to enlarge or Close</p>
                         {showCreateEvent &&
                             <img className={`bottomcontent__createEvent--style ${showCreateEvent?"enlargeVideo":""}`} src={howToCreateMobile} alt="" />
                         }
