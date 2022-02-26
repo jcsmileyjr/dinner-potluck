@@ -40,7 +40,10 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
     <div>
       <main className="planningPage--container">
         <Header event={goto} headerButtonTitle="Done" />
-        <h1 className="planning__pageTitle--style">{eventData.EventTitle}</h1>
+        <div className="planning__pageTitle--container">
+          <h1 className="planning__pageTitle--style">{eventData.EventTitle}</h1>
+          <span className="planning__pageCode--style">Event Code: {eventData.code}</span>
+        </div>
         <div className="planningPage__main--container">
           <section className="planningPage__menu--container">
             <Menu
