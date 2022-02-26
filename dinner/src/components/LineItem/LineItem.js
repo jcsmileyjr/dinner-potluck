@@ -3,12 +3,12 @@ import "./lineItem.css";
 const LineItem = ({leftContent, rightContent, hasButton = "false", buttonTitle, buttonEvent}) => {
     return(
         <div className="lineItem--container">
-            <span>{leftContent}</span>
+            <span className="lineItem__leftContent--style">{leftContent}</span>
             {hasButton==="true" &&
                 <button type="button" className="lineItem__button--style" onClick={() => {buttonEvent()}}>{buttonTitle}</button>
             }
             {hasButton==="false" &&
-                <span>{rightContent}</span>
+                <span className="lineItem__rightContent--style">{rightContent}</span>
             }
         </div>
     );

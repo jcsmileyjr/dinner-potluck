@@ -8,6 +8,14 @@
     margin-bottom: 8px;
 }
 
+.lineItem__leftContent--style {
+    flex: 1.5;
+}
+
+.lineItem__rightContent--style {
+    flex: 1;
+}
+
 .lineItem__button--style {
     background-color: var(--Primary-Dark-green);
     border-radius: 8px;
