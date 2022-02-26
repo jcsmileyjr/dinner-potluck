@@ -1,4 +1,4 @@
-describe("User can  create a new event and see it in upcoming event", () => {
+describe("User can create a new event and see it in upcoming event", () => {
     beforeEach(() => {
         cy.visit('http://localhost:3000/dinner-potluck');
         cy.contains('Start').click();

@@ -1,5 +1,5 @@
 describe('Landing Page Works', () => {
-    it("Users can see the intended elements on the landing page and go to planning page", () => {
+    it("should allow users to see all intended elements on the landing page and go to planning page", () => {
         cy.visit('http://localhost:3000/dinner-potluck');
         cy.contains("An app to crowdsource planning large multifamily meals.");
         cy.contains("The family that stress less");

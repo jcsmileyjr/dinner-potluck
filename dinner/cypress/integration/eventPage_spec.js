@@ -1,5 +1,5 @@
 describe('Users can see the intended elements on the event page', () => {
-    it('displays all sections', () => {
+    it('should display all sections', () => {
         cy.visit('http://localhost:3000/dinner-potluck');
         cy.contains('Start').click();
         cy.contains("Upcoming Events");
