@@ -11,14 +11,14 @@ const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, clo
                     <h2 className="">What is your Name</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {inputNameEvent(e.target.value)}} />
+                <input name="personName"  type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {inputNameEvent(e.target.value)}} />
             </div>
             <div className="updateMenu__input--container">
                 <div className="updateMenu__header--style">
                     <h2 className="">What are you Bringing</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input type="text" value={prepickedFood} className="pillbox__input--style" onChange={(e) => {inputFoodEvent(e.target.value)}} />
+                <input name="foodName" type="text" value={prepickedFood} className="pillbox__input--style" onChange={(e) => {inputFoodEvent(e.target.value)}} />
             </div>
             <button type="button" onClick={()=> {confirmEvent()}} className="updateMenu__button--style confirmButton--style">
                     Confirm
