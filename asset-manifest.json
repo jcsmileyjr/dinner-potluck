@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/dinner-potluck/static/css/main.f6e4c3ee.css",
-    "main.js": "/dinner-potluck/static/js/main.c00f582a.js",
+    "main.css": "/dinner-potluck/static/css/main.25ed7395.css",
+    "main.js": "/dinner-potluck/static/js/main.00ffe9c9.js",
     "static/js/787.bb45ac9f.chunk.js": "/dinner-potluck/static/js/787.bb45ac9f.chunk.js",
     "static/media/CC-demo.gif": "/dinner-potluck/static/media/CC-demo.fbcb59b9677790dcf34e.gif",
     "static/media/CC-demo-mobile.gif": "/dinner-potluck/static/media/CC-demo-mobile.e22f573665f4edbf614c.gif",
     "static/media/food.jpg": "/dinner-potluck/static/media/food.01fd213f43e00fd3e111.jpg",
     "static/media/chef-heart-green.png": "/dinner-potluck/static/media/chef-heart-green.8e83eae629c8c433db96.png",
     "index.html": "/dinner-potluck/index.html",
-    "main.f6e4c3ee.css.map": "/dinner-potluck/static/css/main.f6e4c3ee.css.map",
-    "main.c00f582a.js.map": "/dinner-potluck/static/js/main.c00f582a.js.map",
+    "main.25ed7395.css.map": "/dinner-potluck/static/css/main.25ed7395.css.map",
+    "main.00ffe9c9.js.map": "/dinner-potluck/static/js/main.00ffe9c9.js.map",
     "787.bb45ac9f.chunk.js.map": "/dinner-potluck/static/js/787.bb45ac9f.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f6e4c3ee.css",
-    "static/js/main.c00f582a.js"
+    "static/css/main.25ed7395.css",
+    "static/js/main.00ffe9c9.js"
   ]
 }
