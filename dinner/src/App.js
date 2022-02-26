@@ -4,6 +4,7 @@ import PlanningPage from "./pages/PlanningPage/PlanningPage";
 import CreatePage from "./pages/CreatePage/CreatePage";
 import "./App.css";
 import React, { useState, useEffect } from "react";
+import testData from "./data/eventData.json";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Landing Page");
@@ -17,13 +18,11 @@ function App() {
 
   const updateData = () => {   
     if (localStorage.getItem("potluckData") === null) {
-      fetch("../../data/eventData.json")
-          .then((response) => response.json())
-          .then((data) => {
-              setAllEvents(data);
-              localStorage.setItem("potluckData", JSON.stringify(data));
-      });
+      setAllEvents(testData);
+      localStorage.setItem("potluckData", JSON.stringify(testData));
+      
     }else{
+      console.log("second")
       let savedData = JSON.parse(localStorage.getItem('potluckData')); 
       setAllEvents(savedData);   
     }

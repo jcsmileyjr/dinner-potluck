@@ -15,7 +15,6 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
 
     const showHowToVideo = () => {
         setShowCreateEvent(prevCheck => !prevCheck);
-        console.log("I ran")
     }
 
     return(
@@ -25,9 +24,6 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                 <div className="eventPage__main--container">
                     <section className="events">
                         <Pillbox imageType="heart" headerTitle="Upcoming Events" showButton="false">
-                            {foodEvents.length === 0 &&
-                                <p>No events found. Will update on your next visit after you join a group or create an event.</p>
-                            }                            
                             {foodEvents.length > 0 &&
                                 <div>{
                                     foodEvents.map((event, index) => {
@@ -37,15 +33,19 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                                             </HiddenLink>
                                         ) 
                                     })
-                                    }
+                                }
                                     <p className="greenColor">Click an event for more details</p>
                                 </div>
                             }      
+                            {foodEvents.length >= 1 &&
+                                <p>No events found. Will update on your next visit after you join a group or create an event.</p>
+                            }                            
                         </Pillbox>                        
                     </section>
                     <section className="code">
                         <Pillbox imageType="chef" headerTitle="Enter the Event Code" buttonTitle="Join" showButton="true" buttonEvent={()=>{joinPlanning(joinCode)}} showInput="true" inputEvent={setJoinCode} showInputError={eventInputError} inputErrorMessage="Incorrect event code. Please check with your event's organizer for the correct code.">
                             This is the group code shared by the primary organizer!!!
+                            <p className="exampleMessage">"Example Potluck" code is 123</p>
                         </Pillbox>
                     </section>
                     <section className="create">                        

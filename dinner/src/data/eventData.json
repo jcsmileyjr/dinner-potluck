@@ -1,7 +1,7 @@
 [
     {
-        "EventTitle":"Smiley's Brunch",
-        "EventDate":"2/2",
+        "EventTitle":"Example Potluck",
+        "EventDate":"2/2/2022",
         "code": "123",
         "menu": [
             {
@@ -29,24 +29,6 @@
                 "asignee":"none"
             }
 
-        ]
-    },
-    {
-        "EventTitle":"Neighborhood Picnic",
-        "EventDate":"3/1",
-        "code": "456", 
-        "menu":[
-            {"food": "Beer", "asignee":"John Smith"},
-            {"food": "chips and dip", "asignee":"none"}
-        ]
-    },
-    {
-        "EventTitle":"Bad Boys Company Grill",
-        "EventDate":"3/15",
-        "code": "789",
-        "menu":[
-            {"food": "Wine", "asignee":"Jane Doe"},
-            {"food": "chips and dip", "asignee":"none"}
         ]
     }
 ]
