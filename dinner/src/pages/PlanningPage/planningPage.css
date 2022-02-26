@@ -57,13 +57,14 @@
 
     .planning__pageTitle--style {
         margin-top: initial;
+        text-align: left;
     }
 
     .planning__pageTitle--container {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: baseline;
+        align-items: center;
     }
 
     .planning__pageCode--style {
