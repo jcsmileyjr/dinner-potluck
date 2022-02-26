@@ -74,6 +74,9 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
                 );
               })}
             </Menu>
+            <div className="planningPage__warning--container">
+              <p>When finished, please click the "Done" button to save changes!!!</p>
+            </div>
           </section>
           <section className="planningPage__popularItems--container">
             <Pillbox
