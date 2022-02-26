@@ -18,6 +18,22 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [pageTitle, setPageTitle] = useState("Create an Event");
   const [pageDate, setPageDate] = useState("None");
 
+  const convertDate = (date) => {
+    let year = date.slice(0, 4);
+    let day = date.slice(5, 7);
+    let month = date.slice(-2);
+    return `${trimZero(day)}-${trimZero(month)}-${year}`;
+  }
+
+  const trimZero = (time) => {
+    console.log(`Start is ${time}`)
+    if(time.charAt(0)==="0"){
+      return time.slice(1);
+    }else{
+      return time;
+    }
+  }
+
   const confirmWizard = () => {
     let wizardEvent = newEvent;
     if (currentWizard === 1) {
@@ -30,8 +46,8 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
       setCurrentWizard((prevCurrent) => prevCurrent + 1);
     }
     if (currentWizard === 2) {
-      setPageDate(currentWizardData);
-      wizardEvent.EventDate = currentWizardData;
+      setPageDate(convertDate(currentWizardData));
+      wizardEvent.EventDate = convertDate(currentWizardData);
       setNewEvent((newEvent) => ({
         ...newEvent,
         ...wizardEvent,
@@ -71,8 +87,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
     setShowModal(false);
     setCurrentWizard("final");
-};
-
+  };
 
   const openUpdateMenu = (foodItem) => {
     setDesignateModal(true);
@@ -87,13 +102,13 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   // Function to update event's menu food by person name
   const designatePerson = () => {
-    if(userInputtedName === ""){
+    if (userInputtedName === "") {
       newEvent.menu.forEach((item) => {
         if (item.food === chosenFood) {
           item.asignee = "none";
         }
-      });      
-      closeUpdateMenu()
+      });
+      closeUpdateMenu();
       return;
     }
     newEvent.menu.forEach((item) => {
@@ -176,9 +191,9 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   buttonTitle="Search Database"
                   showButton="true"
                 >
-                    View dozens of popular food items with pictures, images, and
-                    recipes.
-                    <p className="underConstruction">Under Construction!!!!</p>                    
+                  View dozens of popular food items with pictures, images, and
+                  recipes.
+                  <p className="underConstruction">Under Construction!!!!</p>
                 </Pillbox>
                 <Pillbox
                   headerTitle="Group Code"
@@ -186,9 +201,10 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   showButton="true"
                   buttonEvent={() => createEvent(newEvent)}
                 >
-                    <p className="createPage__code--style">{newEvent.code}</p>
-                    Please share this code. This allow anyone to use the app to add to the menu.
-                </Pillbox>                
+                  <p className="createPage__code--style">{newEvent.code}</p>
+                  Please share this code. This allow anyone to use the app to
+                  add to the menu.
+                </Pillbox>
                 <UpdateMenu
                   isVisible={showDesignateModal}
                   closeUpdateMenu={closeUpdateMenu}
