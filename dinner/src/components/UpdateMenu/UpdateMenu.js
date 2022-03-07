@@ -3,6 +3,11 @@ import "../Pillbox/pillbox.css";
 import heart from "../../images/heart-1.png";
 
 const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, closeUpdateMenu, isVisible= false, prepickedFood}) => {
+    const closeKeyboard =(e)=> {
+        if(e.key === 'Enter'){
+            e.target.blur();
+        }
+    }
 
     return(
         <section className={`updateMenu--container ${isVisible?'':'hide'}`}>            
@@ -11,7 +16,10 @@ const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, clo
                     <h2 className="">What is your Name</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input name="personName"  type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {inputNameEvent(e.target.value)}} />
+                <input name="personName"  type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {
+                    inputNameEvent(e.target.value);
+                    closeKeyboard(e);
+                    }} />
             </div>
             <div className="updateMenu__input--container">
                 <div className="updateMenu__header--style">
@@ -20,7 +28,7 @@ const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, clo
                 </div>
                 <input name="foodName" type="text" value={prepickedFood} className="pillbox__input--style" onChange={(e) => {inputFoodEvent(e.target.value)}} />
             </div>
-            <button type="button" onClick={()=> {confirmEvent()}} className="updateMenu__button--style confirmButton--style">
+            <button id="updateMenuConfirm" type="button" onClick={()=> {confirmEvent()}} className="updateMenu__button--style confirmButton--style">
                     Confirm
             </button>
             <button type="button" onClick={()=> {closeUpdateMenu()}} className="updateMenu__button--style cancelButton--style">
