@@ -8,15 +8,8 @@
     border-radius: 8px;
     padding: 10px 10px;
     max-width: 281px;
-    /* max-height: 410px; */
-    max-height: 75vh;
-    position: fixed;
-    z-index: 1;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 50px auto
+    margin: 25px auto;
+    min-height: 90vh;
 }
 
 .updateMenu__input--container {

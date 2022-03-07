@@ -7,14 +7,6 @@ import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 import React, { useState } from "react";
 
 const PlanningPage = ({ goto, event, confirmPicked }) => {
-  /**
-   * Add event data to component state via useEffect
-   * Create function that calls new component UpdateMenu
-   * Component UpdateMenu takes in the "food item" or allow write in, user input "name"
-   * It has a function that update the planning page's menu
-   * To be use with Designate, Write in, I want this
-   */
-
   const [eventData, setEventData] = useState(event);
   const [showModal, setShowModal] = useState(false);
   const [chosenFood, setChosenFood] = useState("");
@@ -38,7 +30,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
 
   return (
     <div>
-      <main className="planningPage--container">
+      <main className={`planningPage--container ${showModal?'hidePage':''}`}>
         <Header event={goto} headerButtonTitle="Done" />
         <div className="planning__pageTitle--container">
           <h1 className="planning__pageTitle--style">{eventData.EventTitle}</h1>
@@ -88,8 +80,10 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               recipes.
               <p className="underConstruction">Under Construction!!!!</p>              
             </Pillbox>
-
-            <UpdateMenu
+          </section>
+        </div>
+      </main>
+      <UpdateMenu
               isVisible={showModal}
               closeUpdateMenu={closeUpdateMenu}
               prepickedFood={chosenFood}
@@ -99,10 +93,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               confirmEvent={() => {
                 confirmUpdateMenu();
               }}
-            />
-          </section>
-        </div>
-      </main>
+      />
     </div>
   );
 };

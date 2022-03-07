@@ -10,13 +10,7 @@
     padding: 10px 10px;
     max-width: 281px;
     max-height: 300px;
-    position: fixed;
-    z-index: 1;
-    top:0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    margin: 125px auto
+    margin: 10px auto
 }
 
 .eventWizard__title--style {

@@ -17,8 +17,11 @@
 }
 
 .createPage__pageDate--style {
-    font-size: xx-large;
     font-weight: bold;
+}
+
+.createPage__pageDate--style, .createPage__pageTitle--style {
+    font-size: large;
 }
 
 .createPage__main--container {
@@ -36,6 +39,10 @@
     color: var(--Neutral-red);
 }
 
+.hidePage {
+    display: none;
+}
+
 @media only screen and (min-width: 600px) {
     .createPage--container {
         max-width: 600px; 
@@ -49,5 +56,9 @@
 
     .createPage__pageTitle--style {
         margin-top: initial;
+    }
+
+    .createPage__pageDate--style {
+        font-size: xx-large;
     }
 }

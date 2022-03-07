@@ -121,7 +121,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   return (
     <div>
-      <main className="createPage--container">
+      <main className={`createPage--container ${showDesignateModal?'hidePage':''}`}>
         <Header event={goto} headerButtonTitle="Home" />
         <div className="createPage__titleArea--container">
           <h1 className="createPage__pageTitle--style">{pageTitle}</h1>
@@ -205,7 +205,12 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   Please share this code. This allow anyone to use the app to
                   add to the menu.
                 </Pillbox>
-                <UpdateMenu
+              </section>
+            </div>
+          )}
+        </div>
+      </main>
+      <UpdateMenu
                   isVisible={showDesignateModal}
                   closeUpdateMenu={closeUpdateMenu}
                   prepickedFood={chosenFood}
@@ -215,12 +220,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   confirmEvent={() => {
                     designatePerson();
                   }}
-                />
-              </section>
-            </div>
-          )}
-        </div>
-      </main>
+      />
     </div>
   );
 };

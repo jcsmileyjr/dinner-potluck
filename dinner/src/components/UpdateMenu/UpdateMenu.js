@@ -3,12 +3,6 @@ import "../Pillbox/pillbox.css";
 import heart from "../../images/heart-1.png";
 
 const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, closeUpdateMenu, isVisible= false, prepickedFood}) => {
-    const closeKeyboard =(e)=> {
-        if(e.key === 'Enter'){
-            e.target.blur();
-        }
-    }
-
     return(
         <section className={`updateMenu--container ${isVisible?'':'hide'}`}>            
             <div className="updateMenu__input--container">
@@ -16,10 +10,7 @@ const UpdateMenu = ({inputNameEvent, inputName,inputFoodEvent, confirmEvent, clo
                     <h2 className="">What is your Name</h2>
                     <img src={heart} className="img--style" alt="" />
                 </div>
-                <input name="personName"  type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {
-                    inputNameEvent(e.target.value);
-                    closeKeyboard(e);
-                    }} />
+                <input name="personName"  type="text" value={inputName} className="pillbox__input--style" onChange={(e) => {inputNameEvent(e.target.value)}} />
             </div>
             <div className="updateMenu__input--container">
                 <div className="updateMenu__header--style">
