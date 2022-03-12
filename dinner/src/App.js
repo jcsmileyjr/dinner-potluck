@@ -12,21 +12,26 @@ function App() {
   const [currentEvent, setCurrentEvent] = useState([]);
   const [allEvents, setAllEvents] = useState([]);
 
-  useEffect(()=> {
+  useEffect(() => {
     updateData();
-  }, [])
+  }, []);
 
-  const updateData = () => {   
+  const updateData = async () => {
     if (localStorage.getItem("potluckData") === null) {
       setAllEvents(testData);
       localStorage.setItem("potluckData", JSON.stringify(testData));
-      
-    }else{
-      console.log("second")
-      let savedData = JSON.parse(localStorage.getItem('potluckData')); 
-      setAllEvents(savedData);   
+    } else {
+      console.log("second");
+      /**
+       * Todo
+       * If there is saved codes, do a fetch to update those codes from
+       */
+      let savedData = JSON.parse(localStorage.getItem("potluckData"));
+      setAllEvents(savedData);
+      let data = await fetch("https://app.netlify.com/sites/Sunday-Potluck/.netlify/functions/getMeal");
+      const information = await data.json();
+      console.log(information)
     }
-    
   };
 
   const goToPage = (page) => {
@@ -45,7 +50,8 @@ function App() {
         return;
       }
     });
-    if(foundCode) setInputError(true);
+
+    if (foundCode) setInputError(true);
   };
 
   const createNewEvent = (event) => {
@@ -55,11 +61,11 @@ function App() {
     setAllEvents(events);
     localStorage.setItem("potluckData", JSON.stringify(events));
     goToPage("Planning Page");
-  }
+  };
 
   // Function called in the UpdateMenu component to update event's menu
   const confirmPickedItem = (foodItem, userName) => {
-    if(userName === "" || foodItem==="") return;
+    if (userName === "" || foodItem === "") return;
     let foodItemFound = false;
     currentEvent.menu.forEach((item) => {
       if (item.food === foodItem && userName !== "") {
@@ -77,15 +83,15 @@ function App() {
 
   const updatePotluckData = () => {
     let events = allEvents;
-    events.forEach( (event, index) => {
-      if(event.code === currentEvent.code){
+    events.forEach((event, index) => {
+      if (event.code === currentEvent.code) {
         events[index] = currentEvent;
       }
     });
 
     setAllEvents(events);
     localStorage.setItem("potluckData", JSON.stringify(events));
-  }
+  };
 
   return (
     <div className="App">
@@ -105,9 +111,10 @@ function App() {
           joinPlanning={(code) => {
             getCurrentEvent(code);
           }}
-          gotoCreatePage={ () => {
+          gotoCreatePage={() => {
             goToPage("Create Page");
-          }}showInputError
+          }}
+          showInputError
           eventInputError={showInputError}
         />
       )}
@@ -134,7 +141,7 @@ function App() {
             createNewEvent(event);
           }}
         />
-      )}      
+      )}
     </div>
   );
 }
