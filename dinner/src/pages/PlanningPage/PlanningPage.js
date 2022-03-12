@@ -7,7 +7,7 @@ import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 import React, { useState } from "react";
 
 const PlanningPage = ({ goto, event, confirmPicked }) => {
-  const [eventData, setEventData] = useState(event);
+  //const [eventData, setEventData] = useState(event);
   const [showModal, setShowModal] = useState(false);
   const [chosenFood, setChosenFood] = useState("");
   const [userInputtedName, setUserInputtedName] = useState("");
@@ -33,8 +33,8 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
       <main className={`planningPage--container ${showModal?'hidePage':''}`}>
         <Header event={goto} headerButtonTitle="Done" />
         <div className="planning__pageTitle--container">
-          <h1 className="planning__pageTitle--style">{eventData.EventTitle}</h1>
-          <span className="planning__pageCode--style">Event Code: {eventData.code}</span>
+          <h1 className="planning__pageTitle--style">{event.EventTitle}</h1>
+          <span className="planning__pageCode--style">Event Code: {event.code}</span>
         </div>
         <div className="planningPage__main--container">
           <section className="planningPage__menu--container">
@@ -45,7 +45,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               showButton="true"
               buttonEvent={() => openUpdateMenu("")}
             >
-              {eventData.menu.map((item, index) => {
+              {event.menu.map((item, index) => {
                 return (
                   <div key={index}>
                     {item.asignee === "none" && (

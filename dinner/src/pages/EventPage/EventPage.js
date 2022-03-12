@@ -9,7 +9,7 @@ import howToCreateEvent from "../../images/CC-demo.gif";
 import howToCreateMobile from "../../images/CC-demo-mobile.gif";
 
 const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventData}) => {
-    const [foodEvents, setFoodEvents] = useState(eventData);
+    //const [foodEvents, setFoodEvents] = useState(eventData);
     const [joinCode, setJoinCode] = useState("");
     const [showCreateEvent, setShowCreateEvent] = useState(false);
 
@@ -24,9 +24,9 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                 <div className="eventPage__main--container">
                     <section className="events">
                         <Pillbox imageType="heart" headerTitle="Upcoming Events" showButton="false">
-                            {foodEvents.length > 0 &&
+                            {eventData.length > 0 &&
                                 <div>{
-                                    foodEvents.map((event, index) => {
+                                    eventData.map((event, index) => {
                                         return(
                                             <HiddenLink key={index} showPlanningPage={()=> joinPlanning(event.code)}>
                                                 <LineItem  leftContent={event.EventTitle} rightContent={event.EventDate} />
@@ -37,7 +37,7 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                                     <p className="greenColor">Click an event for more details</p>
                                 </div>
                             }      
-                            {foodEvents.length >= 1 &&
+                            {eventData.length >= 1 &&
                                 <p>No events found. Will update on your next visit after you join a group or create an event.</p>
                             }                            
                         </Pillbox>                        
