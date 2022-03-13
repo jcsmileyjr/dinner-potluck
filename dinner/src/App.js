@@ -5,6 +5,7 @@ import CreatePage from "./pages/CreatePage/CreatePage";
 import "./App.css";
 import React, { useState, useEffect } from "react";
 import testData from "./data/eventData.json";
+import axios from "axios";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Landing Page");
@@ -22,17 +23,18 @@ function App() {
       localStorage.setItem("potluckData", JSON.stringify(testData));
     } else {
       console.log("second");
-      /**
-       * Todo
-       * If there is saved codes, do a fetch to update those codes from
-       */
       let savedData = JSON.parse(localStorage.getItem("potluckData"));
-      setAllEvents(savedData);
 
-      let data = await fetch(".netlify/functions/getMeal");
-      console.log(data)
-      const information = await data.json();
-      console.log(information);
+      const url = ".netlify/functions/updateCodes";
+      axios.post(url, JSON.stringify(savedData)).then(function (response) {
+        const data = response.data;
+        console.log(data);
+        setAllEvents(data.data);
+      });
+
+      // let data = await fetch(".netlify/functions/getMeal");
+      // const information = await data.json();
+      // console.log(information);
     }
   };
 
