@@ -28,7 +28,8 @@ function App() {
        */
       let savedData = JSON.parse(localStorage.getItem("potluckData"));
       setAllEvents(savedData);
-      let data = await fetch(".netlify/functions/getMeal-1");
+
+      let data = await fetch(".netlify/functions/getMeal");
       console.log(data)
       const information = await data.json();
       console.log(information);
