@@ -45,7 +45,7 @@ function App() {
   const getCurrentEvent = (code) => {
     let foundCode = true;
 
-    // Search meal events on the local device
+    // Search meal events on the local device. If found, add to local device data
     const url = ".netlify/functions/getMealByCode";
     allEvents.forEach((event) => {
       if (event.code === code) {
@@ -55,21 +55,23 @@ function App() {
         foundCode = false;
         return;
       }
-
-      if(foundCode){
-        axios.post(url, JSON.stringify(code)).then(function (response) {
-          const data = response.data;
-          if(data.data.answer){
-            setCurrentEvent(data.data.meal);
-            goToPage("Planning Page");
-            setInputError(false);
-            foundCode = false;
-            return;
-          }
-        });
-        
-      }
     });
+
+    // If can't find code online, then search local device
+    if(foundCode){
+      axios.post(url, JSON.stringify(code)).then(function (response) {
+        const data = response.data;
+        if(data.data.answer){
+          setCurrentEvent(data.data.meal);
+          createNewEvent(data.data.meal);
+          //goToPage("Planning Page");
+          setInputError(false);
+          foundCode = false;
+          return;
+        }
+      });      
+    }
+    
 
     if (foundCode) setInputError(true);
   };
