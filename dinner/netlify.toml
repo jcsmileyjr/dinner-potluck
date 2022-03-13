@@ -1,8 +1,5 @@
 [build]
-    functions = "./dinner/.netlify/functions/"
-
-[functions]
-  directory = ".netlify/functions/"
+    functions = "/netlify/functions/"
 
 [[headers]]
   # Define which paths this specific [[headers]] block will cover.
