@@ -28,7 +28,6 @@ function App() {
       const url = ".netlify/functions/updateCodes";
       axios.post(url, JSON.stringify(savedData)).then(function (response) {
         const data = response.data;
-        console.log(data);
         setAllEvents(data.data);
       });
 
@@ -45,6 +44,9 @@ function App() {
   // Validate the user's code and return the menu if true
   const getCurrentEvent = (code) => {
     let foundCode = true;
+
+    // Search meal events on the local device
+    const url = ".netlify/functions/getMealByCode";
     allEvents.forEach((event) => {
       if (event.code === code) {
         setCurrentEvent(event);
@@ -52,6 +54,20 @@ function App() {
         setInputError(false);
         foundCode = false;
         return;
+      }
+
+      if(foundCode){
+        axios.post(url, JSON.stringify(code)).then(function (response) {
+          const data = response.data;
+          if(data.data.answer){
+            setCurrentEvent(data.data.meal);
+            goToPage("Planning Page");
+            setInputError(false);
+            foundCode = false;
+            return;
+          }
+        });
+        
       }
     });
 
