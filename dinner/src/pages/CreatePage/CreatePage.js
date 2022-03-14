@@ -17,6 +17,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [newEvent, setNewEvent] = useState({ menu: [] });
   const [pageTitle, setPageTitle] = useState("Create an Event");
   const [pageDate, setPageDate] = useState("None");
+  let pass = true;
 
   const convertDate = (date) => {
     let year = date.slice(0, 4);
@@ -199,7 +200,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   headerTitle="Group Code"
                   buttonTitle="Done"
                   showButton="true"
-                  buttonEvent={() => createEvent(newEvent)}
+                  buttonEvent={() => createEvent(newEvent, pass)}
                 >
                   <p className="createPage__code--style">{newEvent.code}</p>
                   Please share this code. This allow anyone to use the app to

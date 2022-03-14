@@ -12,6 +12,7 @@ function App() {
   const [showInputError, setInputError] = useState(false);
   const [currentEvent, setCurrentEvent] = useState([]);
   const [allEvents, setAllEvents] = useState([]);
+  let pass = true;
 
   useEffect(() => {
     updateData();
@@ -46,7 +47,6 @@ function App() {
     let foundCode = true;
 
     // Search meal events on the local device. If found, add to local device data
-    const url = ".netlify/functions/getMealByCode";
     allEvents.forEach((event) => {
       if (event.code === code) {
         setCurrentEvent(event);
@@ -58,10 +58,11 @@ function App() {
     });
 
     // If can't find code online, then search local device
-    if(foundCode){
+    if (foundCode) {
+      const url = ".netlify/functions/getMealByCode";
       axios.post(url, JSON.stringify(code)).then(function (response) {
         const data = response.data;
-        if(data.data.answer){
+        if (data.data.answer) {
           setCurrentEvent(data.data.meal);
           createNewEvent(data.data.meal);
           //goToPage("Planning Page");
@@ -69,20 +70,28 @@ function App() {
           foundCode = false;
           return;
         }
-      });      
+      });
     }
-    
 
     if (foundCode) setInputError(true);
   };
 
-  const createNewEvent = (event) => {
+  const createNewEvent = (event, newEvent = false) => {
     setCurrentEvent(event);
     let events = allEvents;
     events.push(event);
     setAllEvents(events);
     localStorage.setItem("potluckData", JSON.stringify(events));
     goToPage("Planning Page");
+
+    if (newEvent) {
+      console.log("Createing a new event saved to the database");
+      const url = ".netlify/functions/createMeal";
+      axios.post(url, JSON.stringify(event)).then(function (response) {
+        const data = response.data;
+        console.log(data);
+      });
+    }
   };
 
   // Function called in the UpdateMenu component to update event's menu
@@ -160,7 +169,7 @@ function App() {
             goToPage("Event Page");
           }}
           createEvent={(event) => {
-            createNewEvent(event);
+            createNewEvent(event, pass);
           }}
         />
       )}
