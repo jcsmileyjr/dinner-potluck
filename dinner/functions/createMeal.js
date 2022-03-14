@@ -6,15 +6,13 @@ const client = sanityClient({
   dataset: dataSet,
   token: SANITY_TOKEN,
   apiVersion: "2021-06-07", // use a UTC date string
-  useCdn: true, // `false` if you want to ensure fresh data
+  useCdn: false, // `false` if you want to ensure fresh data
 });
 
 exports.handler = async function (event) {
   const meal = JSON.parse(event.body);
-  meal._type = "document";
-  meal._name = "meal";
+  meal._type = "meal";
   const result = await client.create(meal);
-  console.log(result);
   return {
     statusCode: 200,
     body: JSON.stringify({ data: result }),
