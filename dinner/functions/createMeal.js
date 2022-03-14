@@ -9,10 +9,10 @@ const client = sanityClient({
   useCdn: true, // `false` if you want to ensure fresh data
 });
 
-
 exports.handler = async function (event) {
   const meal = JSON.parse(event.body);
   meal._type = "document";
+  meal._name = "meal";
   const result = await client.create(meal);
   console.log(result);
   return {
