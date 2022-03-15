@@ -18,7 +18,7 @@ exports.handler = async function (event) {
   // console.log(onlineData)
   console.log("Meal before patch");
   console.log(meal);
-  const result = await client.patch(meal._id).set({menu:meal.menu}).commit();
+  const result = await client.patch(meal._id).set(meal).commit();
   //const result= "UpdateMenu Function works"
   //const result = await client.create(meal);
   return {
