@@ -1,5 +1,6 @@
 import "./planningPage.css";
 import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/Footer";
 import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import Menu from "../../components/Menu/Menu";
@@ -31,7 +32,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
   return (
     <div>
       <main className={`planningPage--container ${showModal?'hidePage':''}`}>
-        <Header event={goto} headerButtonTitle="Done" />
+        <Header />
         <div className="planning__pageTitle--container">
           <h1 className="planning__pageTitle--style">{event.EventTitle}</h1>
           <span className="planning__pageCode--style">Event Code: {event.code}</span>
@@ -80,6 +81,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               recipes.
               <p className="underConstruction">Under Construction!!!!</p>              
             </Pillbox>
+            <Footer event={goto} headerButtonTitle="Done" />
           </section>
         </div>
       </main>

@@ -1,10 +1,11 @@
 @import url("../../App.css");
 
 .header--container {
-    width: 75vw;
+    /* width: 75vw;
     margin-left: auto;
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-between; */
 }
 
 .header__title--container {

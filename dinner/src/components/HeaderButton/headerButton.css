@@ -6,8 +6,8 @@
     border-radius: 15px;
     border:1px solid rgb(92 163 99);
     box-shadow: 1px 3px 6px rgb(176, 218, 181);
-    padding: 7px 15px;
-    font-size: large;
+    padding: 10px 35px;
+    font-size: x-large;
 }
 
 .HeaderButton__button--style:active {

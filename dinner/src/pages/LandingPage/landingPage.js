@@ -1,4 +1,5 @@
 import Header from "../../components/Header/header";
+import Footer from "../../components/Footer/Footer";
 import food from "../../images/food.jpg";
 import calendar from "../../images/calendar-date-green-1.png";
 import "./landingPage.css";
@@ -7,7 +8,8 @@ const landingPage = ({goto}) => {
     return(
         <div>
             <main className="landingPage__main--container">
-                <Header event={goto} headerButtonTitle="Start" />
+                <Header />
+                <Footer event={goto} headerButtonTitle="Start" />
                 <section className="landingPage__topContent--container">
                     <img src={food} className="image__food--style" alt="" />
                     <div className="topContent__content--container">
