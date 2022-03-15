@@ -83,3 +83,8 @@
     color: var(--Neutral-red);
     margin-top: 0;
   }
+
+  .create-highlightDoneButton {
+    background-color: var(--Neutral-red);
+    border: 1px  solid var(--Neutral-red);
+}

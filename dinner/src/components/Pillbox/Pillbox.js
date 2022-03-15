@@ -16,7 +16,7 @@ const Pillbox = ({imageType, headerTitle, children, buttonColor, buttonTitle, bu
                 </>
             }
             {showButton==="true" &&
-                <button type="button" onClick={()=> {buttonEvent()}} className={`pillbox__button--style ${buttonColor==='light'?'lightGreen':'darkGreen'}`}>
+                <button type="button" onClick={()=> {buttonEvent()}} className={`pillbox__button--style ${buttonColor==='light'?'lightGreen':'darkGreen'} ${buttonTitle==='Done'?"create-highlightDoneButton":""}`}>
                     {buttonTitle}
                 </button>
             }
