@@ -57,6 +57,14 @@
     display: none;
 }
 
+.display--while--mobile {
+    display:block;
+}
+
+.display--while--desktop {
+    display: none;
+}
+
 @media only screen and (min-width: 600px) {
     .planningPage--container {
         max-width: 600px; 
@@ -82,5 +90,13 @@
 
     .planning__pageCode--style {
         font-size: xx-large;
+    }
+
+    .display--while--mobile {
+        display:none;
+    }
+    
+    .display--while--desktop {
+        display: block;
     }
 }
