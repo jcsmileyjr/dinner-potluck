@@ -57,13 +57,13 @@ function App() {
       }
     });
 
-    // If can't find code online, then search local device
+    // If can't find code locally, then search online for the meal matching that code and add that meal to the local device
     if (foundCode) {
       const url = ".netlify/functions/getMealByCode";
       axios.post(url, JSON.stringify(code)).then(function (response) {
         const data = response.data;
         if (data.data.answer) {
-          setCurrentEvent(data.data.meal);
+          //setCurrentEvent(data.data.meal);
           createNewEvent(data.data.meal);
           //goToPage("Planning Page");
           setInputError(false);
@@ -76,22 +76,37 @@ function App() {
     if (foundCode) setInputError(true);
   };
 
+  // function use to create a new event from the online database or when a user create a new event on the device (then updated to online)
   const createNewEvent = (event, newEvent = false) => {
-    setCurrentEvent(event);
-    let events = allEvents;
-    events.push(event);
-    setAllEvents(events);
-    localStorage.setItem("potluckData", JSON.stringify(events));
-    goToPage("Planning Page");
+    console.log("old event")
+    console.log(event)
+    // Event pull from online database. Already has an _id
+    if(!newEvent){
+      setCurrentEvent(event);
+      let events = allEvents;
+      events.push(event);
+      setAllEvents(events);
+      localStorage.setItem("potluckData", JSON.stringify(events));
+      goToPage("Planning Page");
+    }
 
+    // New user event is saved to online database, returned, and update local device with the _id
     if (newEvent) {
-      console.log("Createing a new event saved to the database");
       const url = ".netlify/functions/createMeal";
       axios.post(url, JSON.stringify(event)).then(function (response) {
-        const data = response.data;
+        const data = response.data.data;
+        console.log("new event with id")
         console.log(data);
+        setCurrentEvent(data);
+        let events = allEvents;
+        events.push(data);
+        setAllEvents(events);
+        localStorage.setItem("potluckData", JSON.stringify(events));
+        goToPage("Planning Page");
       });
     }
+
+
   };
 
   // Function called in the UpdateMenu component to update event's menu
@@ -108,6 +123,12 @@ function App() {
     if (foodItemFound === false) {
       currentEvent.menu.push({ food: foodItem, asignee: userName });
     }
+
+    const url = ".netlify/functions/updateMenu";
+    axios.post(url, JSON.stringify(currentEvent)).then(function (response) {
+      const data = response.data;
+      console.log(data);
+    });
 
     updatePotluckData();
   };

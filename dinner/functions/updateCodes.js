@@ -9,7 +9,7 @@ const client = sanityClient({
 });
 
 // Get array of meals from online database and current device list of meals.
-// Compare local meal's codes to online meal's code. There there is a match,
+// Compare local meal's codes to online meal's code. If there is a match,
 // then swap for the online meal. Return new array to update device.
 const getData = async (localData) => {
   const query = '*[_type == "meal"]';
