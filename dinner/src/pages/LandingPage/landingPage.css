@@ -82,7 +82,7 @@
 
 @media only screen and (max-width: 600px) {
     .landingPage__main--container {
-        max-width: 325px;
+        max-width: 300px;
         min-width: 300px;
         margin: 0 auto;
     }

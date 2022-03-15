@@ -1,7 +1,7 @@
 @import url("../../App.css");
 
 .createPage--container {
-    max-width: 350px;
+    max-width: 300px;
     min-width: 300px;
     margin: 0 auto;
 }
