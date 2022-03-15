@@ -145,7 +145,6 @@ function App() {
           gotoCreatePage={() => {
             goToPage("Create Page");
           }}
-          showInputError
           eventInputError={showInputError}
         />
       )}
