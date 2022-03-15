@@ -17,8 +17,6 @@ const getData = async (testCode) => {
     return meals;
   });
 
-  console.log("run funciton");
-  console.log(testCode)
   let data = {};
   data.answer = false;
   onlineData.forEach(meal => {
@@ -33,7 +31,6 @@ const getData = async (testCode) => {
 exports.handler = async function (event) {
   const code = JSON.parse(event.body);
   var testData = await getData(code);
-    console.log(testData)
   return {
     statusCode: 200,
     body: JSON.stringify({ data: testData }),

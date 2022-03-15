@@ -95,8 +95,6 @@ function App() {
       const url = ".netlify/functions/createMeal";
       axios.post(url, JSON.stringify(event)).then(function (response) {
         const data = response.data.data;
-        console.log("new event with id")
-        console.log(data);
         setCurrentEvent(data);
         let events = allEvents;
         events.push(data);

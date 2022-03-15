@@ -30,7 +30,6 @@ const getData = async (localData) => {
 exports.handler = async function (event) {
   const events = JSON.parse(event.body);
   var testData = await getData(events);
-    console.log(testData)
   return {
     statusCode: 200,
     body: JSON.stringify({ data: testData }),

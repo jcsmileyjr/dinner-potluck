@@ -6,6 +6,7 @@ import Menu from "../../components/Menu/Menu";
 import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
+import { nanoid } from "nanoid";
 
 const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [showModal, setShowModal] = useState(true);
@@ -57,7 +58,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     }
 
     if (currentWizard >= 3) {
-      const menuItem = { food: currentWizardData, asignee: "none" };
+      const menuItem = { food: currentWizardData, asignee: "none", _key: nanoid()};
       wizardEvent.menu.push(menuItem);
       setNewEvent((newEvent) => ({
         ...newEvent,
@@ -78,7 +79,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     let wizardEvent = newEvent;
     wizardEvent.code = String(Math.floor(Math.random() * (200 - 1) + 1));
     if (currentWizardData !== "") {
-      const menuItem = { food: currentWizardData, asignee: "none" };
+      const menuItem = { food: currentWizardData, asignee: "none", _key: nanoid() };
       wizardEvent.menu.push(menuItem);
       setNewEvent((newEvent) => ({
         ...newEvent,

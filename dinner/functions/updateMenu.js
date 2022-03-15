@@ -11,16 +11,7 @@ const client = sanityClient({
 
 exports.handler = async function (event) {
   const meal = JSON.parse(event.body);
-  // const query = `*[_type == "meal" && code == "${meal.code}"]`;
-  // let onlineData = await client.fetch(query).then((meals) => {
-  //   return meals;
-  // });
-  // console.log(onlineData)
-  console.log("Meal before patch");
-  console.log(meal);
-  const result = await client.patch(meal._id).set(meal).commit();
-  //const result= "UpdateMenu Function works"
-  //const result = await client.create(meal);
+  const result = await client.createOrReplace(meal);
   return {
     statusCode: 200,
     body: JSON.stringify({ data: result }),
