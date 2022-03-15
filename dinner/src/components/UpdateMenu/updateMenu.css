@@ -25,7 +25,7 @@
 
 
 .pillbox__input--style {
-    border-radius: 8px;
+    /* border-radius: 8px; */
     padding: 8px;
     width: 94%;
     font-size: x-large;
@@ -34,7 +34,7 @@
     font-family: Cambria, serif;
     margin-bottom: 20px;
     background-color: var(--Neutral-white);
-    box-shadow: 1px 3px 6px var(--Neutral-box-shadow-dark-green);
+    /* box-shadow: 1px 3px 6px var(--Neutral-box-shadow-dark-green); */
     border: 1px solid var(--Primary-Dark-green);
     text-align: center;
 }
