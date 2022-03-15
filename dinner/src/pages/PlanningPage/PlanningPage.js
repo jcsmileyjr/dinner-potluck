@@ -37,6 +37,7 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
           <h1 className="planning__pageTitle--style">{event.EventTitle}</h1>
           <span className="planning__pageCode--style">Event Code: {event.code}</span>
         </div>
+        <Footer event={goto} headerButtonTitle="Done" />
         <div className="planningPage__main--container">
           <section className="planningPage__menu--container">
             <Menu
@@ -67,9 +68,6 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
                 );
               })}
             </Menu>
-            <div className="planningPage__warning--container">
-              <p>When finished, please click the "Done" button to save changes!!!</p>
-            </div>
           </section>
           <section className="planningPage__popularItems--container">
             <Pillbox
@@ -81,7 +79,6 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
               recipes.
               <p className="underConstruction">Under Construction!!!!</p>              
             </Pillbox>
-            <Footer event={goto} headerButtonTitle="Done" />
           </section>
         </div>
       </main>
