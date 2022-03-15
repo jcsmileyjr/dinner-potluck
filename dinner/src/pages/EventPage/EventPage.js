@@ -37,7 +37,7 @@ const EventPage = ({goto, gotoCreatePage, joinPlanning, eventInputError, eventDa
                                     <p className="greenColor">Click an event for more details</p>
                                 </div>
                             }      
-                            {eventData.length >= 1 &&
+                            {eventData.length === 0 &&
                                 <p>No events found. Will update on your next visit after you join a group or create an event.</p>
                             }                            
                         </Pillbox>                        
