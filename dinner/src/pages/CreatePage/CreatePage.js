@@ -7,6 +7,7 @@ import Pillbox from "../../components/Pillbox/Pillbox";
 import LineItem from "../../components/LineItem/LineItem";
 import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 import { nanoid } from "nanoid";
+import Copy from "../../images/copy.png";
 
 const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [showModal, setShowModal] = useState(true);
@@ -28,7 +29,6 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   }
 
   const trimZero = (time) => {
-    console.log(`Start is ${time}`)
     if(time.charAt(0)==="0"){
       return time.slice(1);
     }else{
@@ -77,7 +77,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   const finishedWizard = () => {
     let wizardEvent = newEvent;
-    wizardEvent.code = String(Math.floor(Math.random() * (200 - 1) + 1));
+    wizardEvent.code = nanoid();
     if (currentWizardData !== "") {
       const menuItem = { food: currentWizardData, asignee: "none", _key: nanoid() };
       wizardEvent.menu.push(menuItem);
@@ -120,6 +120,10 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     });
     closeUpdateMenu();
   };
+
+  const copyText = () => {
+    navigator.clipboard.writeText(newEvent.code);
+  }
 
   return (
     <div>
@@ -203,7 +207,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   showButton="true"
                   buttonEvent={() => createEvent(newEvent, pass)}
                 >
-                  <p className="createPage__code--style">{newEvent.code}</p>
+                  <p onClick={()=> {copyText()}} className="createPage__code--style">{newEvent.code} <img src={Copy} className="copy__image--style" alt="" /></p>
                   Please share this code. This allow anyone to use the app to
                   add to the menu.
                 </Pillbox>

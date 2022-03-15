@@ -6,6 +6,7 @@ import LineItem from "../../components/LineItem/LineItem";
 import Menu from "../../components/Menu/Menu";
 import UpdateMenu from "../../components/UpdateMenu/UpdateMenu";
 import React, { useState } from "react";
+import Copy from "../../images/copy.png";
 
 const PlanningPage = ({ goto, event, confirmPicked }) => {
   //const [eventData, setEventData] = useState(event);
@@ -29,13 +30,20 @@ const PlanningPage = ({ goto, event, confirmPicked }) => {
     closeUpdateMenu();
   };
 
+  const copyText = () => {
+    navigator.clipboard.writeText(event.code);
+  }
+
   return (
     <div>
       <main className={`planningPage--container ${showModal?'hidePage':''}`}>
         <Header />
         <div className="planning__pageTitle--container">
           <h1 className="planning__pageTitle--style">{event.EventTitle}</h1>
-          <span className="planning__pageCode--style">Event Code: {event.code}</span>
+          <div className="planning__pageCode--style" onClick={()=> {copyText()}}>
+            <span className="newline">Event Code: <img src={Copy} className="copy__image--style" alt="" /></span>
+            <span className="newline">{event.code}</span>
+          </div>
         </div>
         <div className="display--while--mobile">
           <Footer event={goto} headerButtonTitle="Done" />

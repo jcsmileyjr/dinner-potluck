@@ -33,11 +33,12 @@
 }
 
 .planning__pageCode--style {
-    font-size: large;
+    font-size: x-large;
     font-weight: bold;
     color: var(--Primary-Dark-green);
     margin-top: 5px;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .underConstruction, .planningPage__warning--container {
@@ -65,6 +66,16 @@
     display: none;
 }
 
+.newline {
+    display:block;
+}
+
+.copy__image--style {
+    height: 20px;
+    width:  20px;
+    margin-left: 10px;
+}
+
 @media only screen and (min-width: 600px) {
     .planningPage--container {
         max-width: 600px; 
@@ -89,7 +100,8 @@
     }
 
     .planning__pageCode--style {
-        font-size: xx-large;
+        font-size: x-large;
+        text-align: left;
     }
 
     .display--while--mobile {

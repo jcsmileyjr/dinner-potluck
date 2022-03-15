@@ -78,8 +78,6 @@ function App() {
 
   // function use to create a new event from the online database or when a user create a new event on the device (then updated to online)
   const createNewEvent = (event, newEvent = false) => {
-    console.log("old event")
-    console.log(event)
     // Event pull from online database. Already has an _id
     if(!newEvent){
       setCurrentEvent(event);
