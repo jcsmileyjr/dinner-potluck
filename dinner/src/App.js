@@ -65,10 +65,11 @@ function App() {
         const data = response.data;
         if (data.data.answer) {
           //setCurrentEvent(data.data.meal);
-          createNewEvent(data.data.meal);
-          //goToPage("Planning Page");
+          let createNewEvent = false;
           setInputError(false);
           foundCode = false;
+          createNewEvent(data.data.meal, createNewEvent);
+          //goToPage("Planning Page");
           return;
         }
       });
