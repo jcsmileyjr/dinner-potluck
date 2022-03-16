@@ -6,6 +6,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import testData from "./data/eventData.json";
 import axios from "axios";
+import { nanoid } from "nanoid";
 
 function App() {
   const [currentPage, setCurrentPage] = useState("Landing Page");
@@ -117,7 +118,7 @@ function App() {
     });
 
     if (foodItemFound === false) {
-      currentEvent.menu.push({ food: foodItem, asignee: userName });
+      currentEvent.menu.push({ food: foodItem, asignee: userName, _key: nanoid() });
     }
 
     const url = ".netlify/functions/updateMenu";
