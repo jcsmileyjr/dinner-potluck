@@ -6,7 +6,7 @@ const EventWizard = ({isVisible, eventWizardTitle, eventWizardData, getWizardDat
         <section className={`eventWizard--container ${isVisible?'':'hide'}`}>   
             <h2 className="eventWizard__title--style">{eventWizardTitle}</h2>
             {eventWizardTitle !== "What is the Event's Date" &&
-                <input type="text" value={eventWizardData} className="pillbox__input--style" onChange={(e) => {getWizardData(e.target.value)}} />
+                <input type="text" maxLength="30" value={eventWizardData} className="pillbox__input--style" onChange={(e) => {getWizardData(e.target.value)}} />
             }
             {eventWizardTitle === "What is the Event's Date" &&
                 <input type="date" value={eventWizardData} className="pillbox__input--style" onChange={(e) => {getWizardData(e.target.value)}} />
