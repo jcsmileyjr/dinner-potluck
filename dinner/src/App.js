@@ -64,12 +64,10 @@ function App() {
       axios.post(url, JSON.stringify(code)).then(function (response) {
         const data = response.data;
         if (data.data.answer) {
-          //setCurrentEvent(data.data.meal);
-          let createNewEvent = false;
+          let ifNewEvent = false;
           setInputError(false);
           foundCode = false;
-          createNewEvent(data.data.meal, createNewEvent);
-          //goToPage("Planning Page");
+          createNewEvent(data.data.meal, ifNewEvent);
           return;
         }
       });
