@@ -19,6 +19,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
   const [newEvent, setNewEvent] = useState({ menu: [] });
   const [pageTitle, setPageTitle] = useState("Create an Event");
   const [pageDate, setPageDate] = useState("None");
+  const [disabledDone, setEnableDone] = useState(true);
   let pass = true;
 
   const convertDate = (date) => {
@@ -26,15 +27,15 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     let day = date.slice(5, 7);
     let month = date.slice(-2);
     return `${trimZero(day)}-${trimZero(month)}-${year}`;
-  }
+  };
 
   const trimZero = (time) => {
-    if(time.charAt(0)==="0"){
+    if (time.charAt(0) === "0") {
       return time.slice(1);
-    }else{
+    } else {
       return time;
     }
-  }
+  };
 
   const confirmWizard = () => {
     let wizardEvent = newEvent;
@@ -58,7 +59,11 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     }
 
     if (currentWizard >= 3) {
-      const menuItem = { food: currentWizardData, asignee: "none", _key: nanoid()};
+      const menuItem = {
+        food: currentWizardData,
+        asignee: "none",
+        _key: nanoid(),
+      };
       wizardEvent.menu.push(menuItem);
       setNewEvent((newEvent) => ({
         ...newEvent,
@@ -66,7 +71,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
       }));
       setCurrentWizard((prevCurrent) => prevCurrent + 1);
     }
-
+    setEnableDone(true);
     setCurrentWizardData("");
   };
 
@@ -79,7 +84,11 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
     let wizardEvent = newEvent;
     wizardEvent.code = nanoid();
     if (currentWizardData !== "") {
-      const menuItem = { food: currentWizardData, asignee: "none", _key: nanoid() };
+      const menuItem = {
+        food: currentWizardData,
+        asignee: "none",
+        _key: nanoid(),
+      };
       wizardEvent.menu.push(menuItem);
       setNewEvent((newEvent) => ({
         ...newEvent,
@@ -123,11 +132,23 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
 
   const copyText = () => {
     navigator.clipboard.writeText(newEvent.code);
-  }
+  };
+
+  const ifEnableDone = (value) => {
+    if (value !== "") {
+      setEnableDone(false);
+    }else{
+      setEnableDone(true);
+    }
+  };
 
   return (
     <div>
-      <main className={`createPage--container ${showDesignateModal?'hidePage':''}`}>
+      <main
+        className={`createPage--container ${
+          showDesignateModal ? "hidePage" : ""
+        }`}
+      >
         <Header event={goto} headerButtonTitle="Home" />
         <div className="createPage__titleArea--container">
           <h1 className="createPage__pageTitle--style">{pageTitle}</h1>
@@ -142,6 +163,8 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
               getWizardData={setCurrentWizardData}
               confirmWizrdData={confirmWizard}
               closeWizardData={cancelWizard}
+              enableDone={disabledDone}
+              inputNotEmpty={ifEnableDone}
             />
           )}
           {currentWizard === 2 && (
@@ -152,6 +175,8 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
               getWizardData={setCurrentWizardData}
               confirmWizrdData={confirmWizard}
               closeWizardData={cancelWizard}
+              enableDone={disabledDone}
+              inputNotEmpty={ifEnableDone}
             />
           )}
           {currentWizard >= 3 && (
@@ -163,6 +188,8 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
               confirmWizrdData={confirmWizard}
               closeWizardData={finishedWizard}
               isDone={true}
+              enableDone={disabledDone}
+              inputNotEmpty={ifEnableDone}
             />
           )}
           {currentWizard === "final" && (
@@ -207,7 +234,15 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
                   showButton="true"
                   buttonEvent={() => createEvent(newEvent, pass)}
                 >
-                  <p onClick={()=> {copyText()}} className="createPage__code--style">{newEvent.code} <img src={Copy} className="copy__image--style" alt="" /></p>
+                  <p
+                    onClick={() => {
+                      copyText();
+                    }}
+                    className="createPage__code--style"
+                  >
+                    {newEvent.code}{" "}
+                    <img src={Copy} className="copy__image--style" alt="" />
+                  </p>
                   Please share this code. This allow anyone to use the app to
                   add to the menu.
                 </Pillbox>
@@ -217,15 +252,15 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
         </div>
       </main>
       <UpdateMenu
-                  isVisible={showDesignateModal}
-                  closeUpdateMenu={closeUpdateMenu}
-                  prepickedFood={chosenFood}
-                  inputName={userInputtedName}
-                  inputFoodEvent={setChosenFood}
-                  inputNameEvent={setUserInputtedName}
-                  confirmEvent={() => {
-                    designatePerson();
-                  }}
+        isVisible={showDesignateModal}
+        closeUpdateMenu={closeUpdateMenu}
+        prepickedFood={chosenFood}
+        inputName={userInputtedName}
+        inputFoodEvent={setChosenFood}
+        inputNameEvent={setUserInputtedName}
+        confirmEvent={() => {
+          designatePerson();
+        }}
       />
     </div>
   );
