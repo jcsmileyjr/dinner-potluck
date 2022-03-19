@@ -9,13 +9,22 @@
     border-radius: 8px;
     padding: 10px 10px;
     max-width: 281px;
-    max-height: 300px;
+    /* max-height: 300px; */
     margin: 10px auto
 }
 
 .eventWizard__title--style {
     text-align: center;
     color: white;
+}
+
+.updateMenu__showMenu--container {
+    text-align: center;
+    font-size: large;
+}
+
+.showMenu__title--style {
+    font-weight: bold;
 }
 
 

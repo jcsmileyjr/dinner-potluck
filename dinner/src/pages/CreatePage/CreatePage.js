@@ -190,6 +190,7 @@ const CreatePage = ({ goto, gotoEventPage, createEvent }) => {
               isDone={true}
               enableDone={disabledDone}
               inputNotEmpty={ifEnableDone}
+              displayData= {newEvent}
             />
           )}
           {currentWizard === "final" && (
