@@ -5,7 +5,9 @@ const LineItem = ({leftContent, rightContent, hasButton = "false", buttonTitle, 
         <div className="lineItem--container">
             <span className="lineItem__leftContent--style">{leftContent}</span>
             {hasButton==="true" &&
-                <button type="button" className="lineItem__button--style" onClick={() => {buttonEvent()}}>{buttonTitle}</button>
+                <span className="lineItem__rightContent--style">
+                    <button type="button" className="lineItem__button--style" onClick={() => {buttonEvent()}}>{buttonTitle}</button>                
+                </span>
             }
             {hasButton==="false" &&
                 <span className="lineItem__rightContent--style">{rightContent}</span>
