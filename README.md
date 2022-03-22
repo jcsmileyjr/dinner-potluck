@@ -1,4 +1,4 @@
-# Sunday's Family Dinner and Potluck w/ React, Cypress.io
+# Sunday's Family Dinner and Potluck w/ React, Cypress.io, Sanity.io, & Netlify
 
 ![Landing Page Screenshot](./dinner/src/images/landingPage--screenshot.png)
 
@@ -19,7 +19,7 @@ Get away from 50 phone calls, text messages, and pings to learn who is bringing 
 
 ### Production/Host Site
 
-https://jcsmileyjr.github.io/dinner-potluck/
+https://Sunday-Potluck.netlify.app
 
 ### Blog Posts
 - [Day 1: Building a multi-family meal planning web service](https://dev.to/jcsmileyjr/day-1-building-a-multi-family-meal-planning-web-service-50i)
@@ -38,6 +38,8 @@ https://jcsmileyjr.github.io/dinner-potluck/
 4. Either click on the tests one by one OR look to the far right corner to tap the "Run 4 integration specs"
 
 ### Built with
+- Netlify functions for backend support and hosting
+- Sanity.io (headless CMS) for database functionality
 - Integration testing with Cypress.io
 - React
 - Semantic HTML5 markup
